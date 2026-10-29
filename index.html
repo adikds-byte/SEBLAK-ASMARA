@@ -731,7 +731,7 @@
                                     <span id="cart-change" class="font-bold text-amber-400">Rp 0</span>
                                 </div>
 
-                                <button type="button" onclick="processCheckout()" class="w-full bg-gradient-to-r from-amber-500 via-yellow-400 to-emerald-500 hover:brightness-110 text-slate-950 font-tech font-black py-3 rounded-xl shadow-[0_0_20px_rgba(234,179,8,0.4)] transition-all uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer">
+                                <button type="button" onclick="processCheckout()" class="w-full bg-gradient-to-r from-amber-500 via-yellow-400 to-emerald-500 hover:brightness-110 text-slate-950 font-tech font-black py-3 rounded-xl shadow-[0_0_20px_rgba(234,179,8,0.4)] transition-all uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer active:scale-98">
                                     <i class="fa-solid fa-print"></i> BAYAR, CATAT PEMBUKUAN &amp; CETAK
                                 </button>
                             </div>
@@ -2066,114 +2066,153 @@
         }
 
         function processCheckout() {
-            if (cart.length === 0) {
-                showPosToast("⚠️ Pesanan pelanggan masih kosong!", "warning");
-                return;
-            }
-            const { subTot, totalCogs, discVal, discType, discAmount, grandTotal } = getCartTotals();
-            const cashRaw = parseFloat(document.getElementById('cash-received').value);
-            const paidAmount = (!isNaN(cashRaw) && cashRaw > 0) ? cashRaw : grandTotal;
-
-            if (paidAmount < grandTotal) {
-                showPosToast("⚠️ Uang diterima kurang dari Total Bayar!", "error");
-                return;
-            }
-
-            const changeAmount = paidAmount - grandTotal;
-            const db = getDB();
-            const tid = 'TRX-' + Date.now().toString().slice(-6);
-            const meth = document.getElementById('payment-method').value;
-            const custName = document.getElementById('cust-name').value.trim() || 'Pelanggan Umum';
-            const custWA = document.getElementById('cust-wa').value.trim();
-
-            for (let i of cart) {
-                const idx = db.products.findIndex(x => x.id === i.id);
-                if (idx === -1 || db.products[idx].stock < i.quantity) {
-                    showPosToast(`⚠️ Stok ${i.name} tidak mencukupi!`, "error");
+            try {
+                if (cart.length === 0) {
+                    showPosToast("⚠️ Pesanan pelanggan masih kosong!", "warning");
                     return;
                 }
-                db.products[idx].stock -= i.quantity;
-            }
 
-            if (custWA || custName !== 'Pelanggan Umum') {
-                let custIdx = db.customers.findIndex(c => c.wa === custWA && custWA !== '');
-                if (custIdx === -1) custIdx = db.customers.findIndex(c => c.name.toLowerCase() === custName.toLowerCase());
-                if (custIdx === -1) {
-                    db.customers.push({ name: custName, wa: custWA, totalSpent: grandTotal, history: [tid] });
+                const { subTot, totalCogs, discVal, discType, discAmount, grandTotal } = getCartTotals();
+                const cashInputEl = document.getElementById('cash-received');
+                const cashRaw = parseFloat(cashInputEl ? cashInputEl.value : '0');
+                const paidAmount = (!isNaN(cashRaw) && cashRaw > 0) ? cashRaw : grandTotal;
+
+                if (paidAmount < grandTotal) {
+                    showPosToast("⚠️ Uang diterima kurang dari Total Bayar!", "error");
+                    return;
+                }
+
+                const changeAmount = paidAmount - grandTotal;
+                const db = getDB();
+                const tid = 'TRX-' + Date.now().toString().slice(-6);
+                const meth = document.getElementById('payment-method')?.value || 'Tunai';
+                const custName = document.getElementById('cust-name')?.value.trim() || 'Pelanggan Umum';
+                const custWA = document.getElementById('cust-wa')?.value.trim() || '';
+
+                // Deduct stock safely
+                for (let i of cart) {
+                    const idx = db.products.findIndex(x => x.id === i.id);
+                    if (idx !== -1) {
+                        if (db.products[idx].stock < i.quantity) {
+                            showPosToast(`⚠️ Stok ${i.name} tidak mencukupi!`, "error");
+                            return;
+                        }
+                        db.products[idx].stock -= i.quantity;
+                    }
+                }
+
+                // Customer CRM update
+                if (custWA || custName !== 'Pelanggan Umum') {
+                    let custIdx = db.customers.findIndex(c => c.wa === custWA && custWA !== '');
+                    if (custIdx === -1) custIdx = db.customers.findIndex(c => c.name.toLowerCase() === custName.toLowerCase());
+                    if (custIdx === -1) {
+                        db.customers.push({ name: custName, wa: custWA, totalSpent: grandTotal, history: [tid] });
+                    } else {
+                        db.customers[custIdx].totalSpent += grandTotal;
+                        if (custWA) db.customers[custIdx].wa = custWA;
+                        if (!db.customers[custIdx].history) db.customers[custIdx].history = [];
+                        db.customers[custIdx].history.push(tid);
+                    }
+                }
+
+                // Record transaction
+                const newTx = {
+                    id: tid,
+                    items: JSON.parse(JSON.stringify(cart)),
+                    subtotal: subTot,
+                    cogs: totalCogs,
+                    discountVal: discVal,
+                    discountType: discType,
+                    discountAmount: discAmount,
+                    total: grandTotal,
+                    paid: paidAmount,
+                    change: changeAmount,
+                    method: meth,
+                    date: new Date().toISOString(),
+                    customerName: custName,
+                    customerWA: custWA
+                };
+
+                db.transactions.push(newTx);
+                saveDB(db);
+
+                // Populate print receipt DOM safely
+                const setElText = (id, val) => {
+                    const el = document.getElementById(id);
+                    if (el) el.innerText = val;
+                };
+
+                setElText('receipt-id', tid);
+                setElText('receipt-time', new Date().toLocaleString('id-ID'));
+                setElText('receipt-cust', custName + (custWA ? ` (${custWA})` : ''));
+                setElText('receipt-method', meth);
+                setElText('receipt-paid', 'Rp ' + paidAmount.toLocaleString('id-ID'));
+                setElText('receipt-change', 'Rp ' + changeAmount.toLocaleString('id-ID'));
+
+                const receiptItemsEl = document.getElementById('receipt-items');
+                if (receiptItemsEl) {
+                    receiptItemsEl.innerHTML = cart.map(i => `
+                        <tr>
+                            <td class="align-top py-0.5">${i.name}<br/>${i.quantity}x ${i.price.toLocaleString('id-ID')}</td>
+                            <td class="text-right align-bottom py-0.5">${(i.quantity * i.price).toLocaleString('id-ID')}</td>
+                        </tr>`).join('');
+                }
+
+                if (discAmount > 0) {
+                    document.getElementById('receipt-subtotal-row')?.classList.remove('hidden');
+                    document.getElementById('receipt-discount-row')?.classList.remove('hidden');
+                    setElText('receipt-subtotal', 'Rp ' + subTot.toLocaleString('id-ID'));
+                    setElText('receipt-discount-label', discType === 'percent' ? `Diskon (${discVal}%)` : 'Diskon');
+                    setElText('receipt-discount', '-Rp ' + discAmount.toLocaleString('id-ID'));
                 } else {
-                    db.customers[custIdx].totalSpent += grandTotal;
-                    if (custWA) db.customers[custIdx].wa = custWA;
-                    db.customers[custIdx].history.push(tid);
+                    document.getElementById('receipt-subtotal-row')?.classList.add('hidden');
+                    document.getElementById('receipt-discount-row')?.classList.add('hidden');
                 }
+                setElText('receipt-total', 'Rp ' + grandTotal.toLocaleString('id-ID'));
+
+                // Construct WA Message
+                let waMsg = `*STRUK PEMBELIAN - ${appName}*\nNo: ${tid}\nWaktu: ${new Date().toLocaleString('id-ID')}\nPelanggan: ${custName}\n\n*Rincian Pesanan:*\n`;
+                cart.forEach(i => { waMsg += `• ${i.name} (${i.quantity}x) = Rp ${(i.quantity * i.price).toLocaleString('id-ID')}\n`; });
+                if (discAmount > 0) waMsg += `\nSubtotal: Rp ${subTot.toLocaleString('id-ID')}\nDiskon: -Rp ${discAmount.toLocaleString('id-ID')}\n`;
+                waMsg += `\n*TOTAL: Rp ${grandTotal.toLocaleString('id-ID')}*\nBayar (${meth}): Rp ${paidAmount.toLocaleString('id-ID')}\nKembali: Rp ${changeAmount.toLocaleString('id-ID')}\n\n_${receiptFooterText}_`;
+
+                showPosToast(`✅ Transaksi ${tid} dicatat! Total: Rp ${grandTotal.toLocaleString('id-ID')}`, "success");
+
+                // Print sequence and WA launch
+                const receiptArea = document.getElementById('print-receipt-area');
+                if (receiptArea) receiptArea.classList.remove('hidden');
+
+                setTimeout(() => {
+                    try { window.print(); } catch (err) { console.warn('Print warning:', err); }
+
+                    if (custWA) {
+                        let formattedWA = custWA.replace(/[^0-9]/g, '');
+                        if (formattedWA.startsWith('0')) formattedWA = '62' + formattedWA.substring(1);
+                        try {
+                            window.open(`https://wa.me/${formattedWA}?text=${encodeURIComponent(waMsg)}`, '_blank');
+                        } catch(e) {
+                            console.warn("WA window popup blocked or unavailable:", e);
+                        }
+                    }
+
+                    if (receiptArea) receiptArea.classList.add('hidden');
+
+                    // Reset form & refresh lists
+                    clearCart();
+                    const cNameEl = document.getElementById('cust-name');
+                    const cWaEl = document.getElementById('cust-wa');
+                    if (cNameEl) cNameEl.value = '';
+                    if (cWaEl) cWaEl.value = '';
+
+                    loadProducts();
+                    loadReports();
+                    updateExecutiveKPIs();
+                }, 300);
+
+            } catch (err) {
+                console.error("Checkout process error:", err);
+                showPosToast("❌ Terjadi kesalahan pada sistem checkout: " + err.message, "error");
             }
-
-            const newTx = {
-                id: tid,
-                items: JSON.parse(JSON.stringify(cart)),
-                subtotal: subTot,
-                cogs: totalCogs,
-                discountVal,
-                discountType: discType,
-                discountAmount: discAmount,
-                total: grandTotal,
-                paid: paidAmount,
-                change: changeAmount,
-                method: meth,
-                date: new Date().toISOString(),
-                customerName: custName,
-                customerWA: custWA
-            };
-
-            db.transactions.push(newTx);
-            saveDB(db);
-
-            document.getElementById('receipt-id').innerText = tid;
-            document.getElementById('receipt-time').innerText = new Date().toLocaleString('id-ID');
-            document.getElementById('receipt-cust').innerText = custName + (custWA ? ` (${custWA})` : '');
-            document.getElementById('receipt-method').innerText = meth;
-            document.getElementById('receipt-paid').innerText = 'Rp ' + paidAmount.toLocaleString('id-ID');
-            document.getElementById('receipt-change').innerText = 'Rp ' + changeAmount.toLocaleString('id-ID');
-            document.getElementById('receipt-items').innerHTML = cart.map(i => `
-                <tr>
-                    <td class="align-top py-0.5">${i.name}<br/>${i.quantity}x ${i.price.toLocaleString('id-ID')}</td>
-                    <td class="text-right align-bottom py-0.5">${(i.quantity * i.price).toLocaleString('id-ID')}</td>
-                </tr>`).join('');
-
-            if (discAmount > 0) {
-                document.getElementById('receipt-subtotal-row').classList.remove('hidden');
-                document.getElementById('receipt-discount-row').classList.remove('hidden');
-                document.getElementById('receipt-subtotal').innerText = 'Rp ' + subTot.toLocaleString('id-ID');
-                document.getElementById('receipt-discount-label').innerText = discType === 'percent' ? `Diskon (${discVal}%)` : 'Diskon';
-                document.getElementById('receipt-discount').innerText = '-Rp ' + discAmount.toLocaleString('id-ID');
-            } else {
-                document.getElementById('receipt-subtotal-row').classList.add('hidden');
-                document.getElementById('receipt-discount-row').classList.add('hidden');
-            }
-            document.getElementById('receipt-total').innerText = 'Rp ' + grandTotal.toLocaleString('id-ID');
-
-            let waMsg = `*STRUK PEMBELIAN - ${appName}*\nNo: ${tid}\nWaktu: ${new Date().toLocaleString('id-ID')}\nPelanggan: ${custName}\n\n*Rincian Pesanan:*\n`;
-            cart.forEach(i => { waMsg += `• ${i.name} (${i.quantity}x) = Rp ${(i.quantity * i.price).toLocaleString('id-ID')}\n`; });
-            if (discAmount > 0) waMsg += `\nSubtotal: Rp ${subTot.toLocaleString('id-ID')}\nDiskon: -Rp ${discAmount.toLocaleString('id-ID')}\n`;
-            waMsg += `\n*TOTAL: Rp ${grandTotal.toLocaleString('id-ID')}*\nBayar (${meth}): Rp ${paidAmount.toLocaleString('id-ID')}\nKembali: Rp ${changeAmount.toLocaleString('id-ID')}\n\n_${receiptFooterText}_`;
-
-            showPosToast(`✅ Transaksi ${tid} dicatat! Total: Rp ${grandTotal.toLocaleString('id-ID')}`, "success");
-
-            const r = document.getElementById('print-receipt-area');
-            r.classList.remove('hidden');
-            setTimeout(() => {
-                window.print();
-                if (custWA) {
-                    let formattedWA = custWA.replace(/[^0-9]/g, '');
-                    if (formattedWA.startsWith('0')) formattedWA = '62' + formattedWA.substring(1);
-                    window.open(`https://wa.me/${formattedWA}?text=${encodeURIComponent(waMsg)}`, '_blank');
-                }
-                r.classList.add('hidden');
-                clearCart();
-                document.getElementById('cust-name').value = '';
-                document.getElementById('cust-wa').value = '';
-                loadProducts();
-                loadReports();
-            }, 350);
         }
 
         // =====================================================================
