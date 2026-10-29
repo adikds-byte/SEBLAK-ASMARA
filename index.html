@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEBLAK ASMARA POS & ERP V5.8 — Emerald Gold Theme & Pembukuan 4 Periode</title>
+    <title>SEBLAK ASMARA POS & SMART BOOKKEEPING PRO V6.0 — Deep Slate & Cyan-Emerald Adaptive Theme</title>
 
     <!-- ========================================================================= -->
     <!-- 1. EARLY SECURITY GUARD V5.8 (EMERALD GOLD HUD & TACTICAL NOTIFICATION)    -->
@@ -199,23 +199,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@500;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Stylesheet Tema Emas Kehijauan (Emerald Gold Theme) -->
+    <!-- Stylesheet Tema Deep Slate & Cyan-Teal-Emerald Adaptive (Mode Dark & Light Kontras Tinggi) -->
     <style>
         :root {
-            --bg-main: #021a12;
-            --bg-card: rgba(4, 39, 27, 0.90);
-            --bg-header: rgba(2, 26, 18, 0.95);
-            --border-color: rgba(234, 179, 8, 0.45);
+            --bg-main: #020617;
+            --bg-card: rgba(12, 20, 38, 0.92);
+            --bg-header: rgba(9, 16, 32, 0.95);
+            --border-color: rgba(6, 182, 212, 0.38);
             --text-main: #f8fafc;
-            --text-muted: #a7f3d0;
+            --text-muted: #94a3b8;
         }
-        html:not(.dark) {
-            --bg-main: #f0fdf4;
-            --bg-card: rgba(255, 255, 255, 0.96);
-            --bg-header: rgba(255, 255, 255, 0.97);
-            --border-color: rgba(202, 138, 4, 0.55);
-            --text-main: #022c22;
-            --text-muted: #047857;
+        html:not(.dark), .theme-light {
+            --bg-main: #f1f5f9;
+            --bg-card: rgba(255, 255, 255, 0.97);
+            --bg-header: rgba(255, 255, 255, 0.98);
+            --border-color: rgba(14, 165, 233, 0.45);
+            --text-main: #0f172a;
+            --text-muted: #475569;
         }
         body {
             font-family: 'Inter', sans-serif;
@@ -231,93 +231,264 @@
             background: var(--bg-card);
             border: 1.5px solid var(--border-color);
             border-radius: 1rem;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.65);
             transition: all 0.25s ease;
         }
         .cmd-card:hover {
-            border-color: rgba(250, 204, 21, 0.85);
-            box-shadow: 0 0 25px rgba(234, 179, 8, 0.25);
+            border-color: rgba(34, 211, 238, 0.7);
+            box-shadow: 0 0 24px rgba(6, 182, 212, 0.16);
         }
+
+        /* ===================================================================== */
+        /* KONTRAS TINGGI & KENYAMANAN MATA PADA MODE TERANG (LIGHT MODE)        */
+        /* ===================================================================== */
+        html:not(.dark) .cmd-card {
+            box-shadow: 0 8px 24px -6px rgba(15, 23, 42, 0.10), 0 2px 6px -1px rgba(15, 23, 42, 0.06);
+        }
+        html:not(.dark) .cmd-card:hover {
+            border-color: rgba(2, 132, 199, 0.75);
+            box-shadow: 0 12px 28px -6px rgba(2, 132, 199, 0.16);
+        }
+        /* Permukaan Panel, Kartu Dalam, Tabel & Form di Light Mode */
+        html:not(.dark) :is(.bg-slate-950, .bg-slate-950\/95, .bg-slate-950\/90, .bg-slate-950\/80, .bg-\[\#020617\], .bg-\[\#061216\]):not(#loadingOverlay, #loadingOverlay *, #screensaverOverlay, #screensaverOverlay *, .earth-sphere-well) {
+            background-color: #f8fafc !important;
+            border-color: #cbd5e1 !important;
+            color: #0f172a !important;
+        }
+        html:not(.dark) :is(.bg-slate-900, .bg-slate-900\/95, .bg-slate-900\/90, .bg-slate-900\/80, .bg-slate-900\/60, .bg-slate-900\/50):not(#loadingOverlay, #loadingOverlay *, #screensaverOverlay, #screensaverOverlay *, .earth-sphere-well) {
+            background-color: #f1f5f9 !important;
+            border-color: #cbd5e1 !important;
+            color: #0f172a !important;
+        }
+        html:not(.dark) .bg-slate-800 {
+            background-color: #e2e8f0 !important;
+            color: #0f172a !important;
+            border-color: #94a3b8 !important;
+        }
+        html:not(.dark) .bg-slate-800:hover {
+            background-color: #cbd5e1 !important;
+        }
+        /* Pertahankan latar gelap khusus bola Bumi 3D agar tekstur planet tetap kontras */
+        html:not(.dark) .earth-sphere-well {
+            background-color: #020617 !important;
+            border-color: #0284c7 !important;
+        }
+        /* Input, Select, Textarea di Light Mode */
+        html:not(.dark) input:not([type="file"]),
+        html:not(.dark) select,
+        html:not(.dark) textarea {
+            background-color: #ffffff !important;
+            color: #0f172a !important;
+            border-color: #94a3b8 !important;
+        }
+        html:not(.dark) input::placeholder,
+        html:not(.dark) textarea::placeholder {
+            color: #64748b !important;
+        }
+        html:not(.dark) input:focus,
+        html:not(.dark) select:focus,
+        html:not(.dark) textarea:focus {
+            border-color: #0284c7 !important;
+            box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.2) !important;
+        }
+        /* Tabel & Baris di Light Mode */
+        html:not(.dark) thead {
+            background-color: #e2e8f0 !important;
+            color: #0f172a !important;
+        }
+        html:not(.dark) thead th {
+            color: #0f172a !important;
+            font-weight: 800 !important;
+        }
+        html:not(.dark) tbody {
+            color: #0f172a !important;
+        }
+        html:not(.dark) tbody tr {
+            border-color: #e2e8f0 !important;
+        }
+        html:not(.dark) tbody tr:hover {
+            background-color: #e0f2fe !important;
+        }
+        /* Tipografi & Kontras Warna Teks di Light Mode */
+        html:not(.dark) :is(.text-white, .text-slate-100, .text-slate-200):not(#loadingOverlay, #loadingOverlay *, #screensaverOverlay, #screensaverOverlay *, .bg-cyan-600, .bg-teal-600, .bg-emerald-600, .bg-emerald-700, .bg-rose-600, .bg-amber-600, .bg-yellow-600, .bg-purple-600, .bg-blue-600, .bg-pink-600, .from-cyan-600, .from-cyan-600 *) {
+            color: #0f172a !important;
+        }
+        html:not(.dark) .text-slate-300,
+        html:not(.dark) .text-slate-400 {
+            color: #334155 !important;
+        }
+        html:not(.dark) .text-cyan-300,
+        html:not(.dark) .text-cyan-400,
+        html:not(.dark) .text-sky-400 {
+            color: #0369a1 !important;
+        }
+        html:not(.dark) .text-emerald-300,
+        html:not(.dark) .text-emerald-300\/80,
+        html:not(.dark) .text-emerald-400,
+        html:not(.dark) .text-emerald-400\/80,
+        html:not(.dark) .text-teal-300 {
+            color: #047857 !important;
+        }
+        html:not(.dark) .text-amber-200,
+        html:not(.dark) .text-amber-200\/80,
+        html:not(.dark) .text-amber-200\/70,
+        html:not(.dark) .text-amber-300,
+        html:not(.dark) .text-amber-300\/80,
+        html:not(.dark) .text-amber-400,
+        html:not(.dark) .text-yellow-300,
+        html:not(.dark) .text-yellow-400 {
+            color: #b45309 !important;
+        }
+        html:not(.dark) .text-lime-300,
+        html:not(.dark) .text-lime-400 {
+            color: #3f6212 !important;
+        }
+        html:not(.dark) .text-rose-300,
+        html:not(.dark) .text-rose-300\/80,
+        html:not(.dark) .text-rose-400 {
+            color: #be123c !important;
+        }
+        html:not(.dark) .text-purple-300,
+        html:not(.dark) .text-purple-400 {
+            color: #6d28d9 !important;
+        }
+        /* Badge & Border di Light Mode */
+        html:not(.dark) .bg-cyan-950,
+        html:not(.dark) .bg-cyan-950\/90 {
+            background-color: #e0f2fe !important;
+            border-color: #38bdf8 !important;
+            color: #0369a1 !important;
+        }
+        html:not(.dark) .bg-slate-950\/90,
+        html:not(.dark) .bg-slate-900\/80 {
+            background-color: #d1fae5 !important;
+            border-color: #34d399 !important;
+            color: #047857 !important;
+        }
+        html:not(.dark) .bg-amber-950,
+        html:not(.dark) .bg-amber-950\/90,
+        html:not(.dark) .bg-amber-950\/80 {
+            background-color: #fef3c7 !important;
+            border-color: #fbbf24 !important;
+            color: #b45309 !important;
+        }
+        html:not(.dark) .bg-rose-950\/60 {
+            background-color: #ffe4e6 !important;
+            border-color: #fb7185 !important;
+            color: #be123c !important;
+        }
+        html:not(.dark) .border-slate-800,
+        html:not(.dark) .border-slate-800\/80,
+        html:not(.dark) .border-slate-700,
+        html:not(.dark) .border-slate-700\/80 {
+            border-color: #cbd5e1 !important;
+        }
+        /* Teks Judul Gradien di Light Mode */
+        html:not(.dark) header h1.bg-clip-text,
+        html:not(.dark) #tab-laporan h2.bg-clip-text,
+        html:not(.dark) #lbl-real-clock {
+            background-image: linear-gradient(90deg, #0f172a, #0369a1, #047857) !important;
+        }
+        /* Panel Kredit Programmer di Light Mode */
+        html:not(.dark) .credit-banner-panel {
+            background: linear-gradient(90deg, #f8fafc, #e0f2fe, #f0fdf4) !important;
+            border-color: #0284c7 !important;
+            box-shadow: 0 8px 25px rgba(2, 132, 199, 0.12) !important;
+        }
+        /* Kapsul Header Bahasa & Ukuran Font di Light Mode */
+        html:not(.dark) .capsule-translate {
+            background: #f0f9ff !important;
+            color: #0369a1 !important;
+            border-color: #0284c7 !important;
+        }
+        html:not(.dark) .capsule-font {
+            background: #f0fdf4 !important;
+            color: #0f172a !important;
+            border-color: #059669 !important;
+        }
+        html:not(.dark) .capsule-font .fsBtn { color: #0f172a !important; }
+        html:not(.dark) .capsule-font .fsMid { color: #047857 !important; }
+        html:not(.dark) #bgEarthContainer { opacity: 0.14 !important; }
 
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .hidden-ui { display: none !important; }
 
-        /* Orbit Rings untuk Wadah Bumi 3D */
+        /* Orbit Rings untuk Wadah Bumi 3D (Cyan, Emerald & Amber) */
         .orbit-ring { position: absolute; border-radius: 50%; border: 2px dashed; pointer-events: none; }
-        .orbit-ring-1 { border-color: rgba(234, 179, 8, 0.65) transparent rgba(234, 179, 8, 0.65) transparent; animation: spinOrbit1 12s linear infinite; }
-        .orbit-ring-2 { border-color: transparent rgba(16, 185, 129, 0.65) transparent rgba(16, 185, 129, 0.65); animation: spinOrbit2 16s linear infinite; }
-        .orbit-ring-3 { border-color: rgba(250, 204, 21, 0.5) transparent rgba(52, 211, 153, 0.5) transparent; animation: spinOrbit3 20s linear infinite; }
+        .orbit-ring-1 { border-color: rgba(6, 182, 212, 0.60) transparent rgba(6, 182, 212, 0.60) transparent; animation: spinOrbit1 12s linear infinite; }
+        .orbit-ring-2 { border-color: transparent rgba(16, 185, 129, 0.55) transparent rgba(245, 158, 11, 0.55); animation: spinOrbit2 16s linear infinite; }
+        .orbit-ring-3 { border-color: rgba(56, 189, 248, 0.45) transparent rgba(52, 211, 153, 0.45) transparent; animation: spinOrbit3 20s linear infinite; }
 
         @keyframes spinOrbit1 { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         @keyframes spinOrbit2 { 0% { transform: rotate(360deg); } 100% { transform: rotate(0deg); } }
         @keyframes spinOrbit3 { 0% { transform: rotate(0deg) scale(0.98); } 50% { transform: rotate(180deg) scale(1.03); } 100% { transform: rotate(360deg) scale(0.98); } }
 
-        /* HUD Security Styling Emerald Gold */
+        /* HUD Security Styling Deep Slate & Cyan-Emerald (v6.0 Ultimate) */
         .pos-sec-hud {
             position: fixed; top: 20px; right: 20px; width: min(430px, calc(100vw - 24px));
             z-index: 100050; pointer-events: auto;
         }
         .sec-hud-card {
-            background: linear-gradient(135deg, rgba(2, 26, 18, 0.98), rgba(4, 39, 27, 0.98), rgba(20, 30, 10, 0.98));
-            border: 1.5px solid #eab308; border-radius: 14px;
-            box-shadow: 0 0 30px rgba(234, 179, 8, 0.4), 0 20px 50px rgba(0,0,0,0.9);
+            background: linear-gradient(135deg, rgba(8, 22, 28, 0.98), rgba(2, 6, 23, 0.98));
+            border: 1.5px solid #10b981; border-radius: 14px;
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.4), 0 20px 50px rgba(0,0,0,0.9);
             overflow: hidden;
         }
         .sec-hud-header {
             display: flex; align-items: center; justify-content: space-between;
-            padding: 10px 14px; background: rgba(234, 179, 8, 0.18);
-            border-bottom: 1px solid rgba(234, 179, 8, 0.35);
+            padding: 10px 14px; background: rgba(6, 182, 212, 0.14);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.35);
         }
         .sec-hud-title-group { display: flex; align-items: center; gap: 10px; }
         .sec-hud-icon-wrap {
             width: 32px; height: 32px; border-radius: 8px;
-            background: rgba(234, 179, 8, 0.25); border: 1px solid #facc15;
-            display: flex; align-items: center; justify-content: center; color: #facc15;
+            background: rgba(6, 182, 212, 0.2); border: 1px solid #22d3ee;
+            display: flex; align-items: center; justify-content: center; color: #22d3ee;
         }
-        .sec-hud-title { font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 900; color: #fff; }
-        .sec-hud-subtitle { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #fde047; }
+        .sec-hud-title { font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 900; color: #f8fafc; }
+        .sec-hud-subtitle { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #34d399; }
         .sec-hud-ctrls { display: flex; align-items: center; gap: 6px; }
         .sec-badge-attempt {
             font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 800;
-            color: #fde047; background: rgba(133, 77, 14, 0.6); border: 1px solid #facc15;
+            color: #fde047; background: rgba(245, 158, 11, 0.2); border: 1px solid #f59e0b;
             padding: 2px 6px; border-radius: 5px;
         }
         .sec-hud-close-btn {
-            width: 24px; height: 24px; border-radius: 6px; background: rgba(2,26,18,0.8);
-            border: 1px solid #eab308; color: #fde047; cursor: pointer;
+            width: 24px; height: 24px; border-radius: 6px; background: rgba(15, 23, 42, 0.85);
+            border: 1px solid #06b6d4; color: #38bdf8; cursor: pointer;
         }
         .sec-hud-body { padding: 12px 14px; }
         .sec-action-banner {
-            display: flex; align-items: center; gap: 8px; background: rgba(234, 179, 8, 0.18);
-            border-left: 3.5px solid #facc15; padding: 6px 10px; border-radius: 0 6px 6px 0; margin-bottom: 8px;
+            display: flex; align-items: center; gap: 8px; background: rgba(244, 63, 94, 0.14);
+            border-left: 3.5px solid #f43f5e; padding: 6px 10px; border-radius: 0 6px 6px 0; margin-bottom: 8px;
         }
-        .sec-action-title { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 800; color: #fef08a; }
+        .sec-action-title { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 800; color: #fda4af; }
         .sec-explanation { font-size: 11px; color: #cbd5e1; line-height: 1.45; margin: 0; }
         .sec-hud-footer {
             display: flex; justify-content: space-between; padding: 7px 14px;
-            background: rgba(2,26,18,0.8); font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #10b981;
+            background: rgba(2, 6, 23, 0.9); font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #38bdf8;
         }
         .sec-meta-left { display: flex; align-items: center; gap: 6px; }
         .sec-meta-dot { width: 6px; height: 6px; border-radius: 50%; background: #10b981; }
-        .sec-progress-track { width: 100%; height: 3px; background: #021a12; }
-        .sec-progress-bar { height: 100%; width: 100%; background: linear-gradient(90deg, #10b981, #facc15, #f59e0b); }
+        .sec-progress-track { width: 100%; height: 3px; background: #020617; }
+        .sec-progress-bar { height: 100%; width: 100%; background: linear-gradient(90deg, #06b6d4, #10b981, #f59e0b); }
 
-        .capsule-translate { display:inline-flex; align-items:center; gap:6px; border:1.5px solid #eab308; border-radius:12px; background:rgba(2,26,18,.8); color:#fde047; font-family:'JetBrains Mono',monospace; font-weight:700; cursor:pointer; transition:all .2s; height:38px; padding:0 12px; font-size:11px; }
-        .capsule-translate:hover { background:rgba(234,179,8,.2); box-shadow:0 0 12px rgba(234,179,8,.35); }
-        .capsule-font { display:inline-flex; align-items:center; gap:6px; border:1.5px solid #10b981; border-radius:12px; background:rgba(2,26,18,.8); color:#fff; font-family:'JetBrains Mono',monospace; font-weight:700; height:38px; padding:0 10px; font-size:11px; }
-        .capsule-font .fsBtn { color:#fff; background:none; border:none; cursor:pointer; font-weight:800; }
-        .capsule-font .fsBtn:hover { color:#facc15; }
-        .capsule-font .fsMid { display:inline-flex; align-items:center; gap:4px; color:#facc15; background:none; border:none; cursor:pointer; }
+        .capsule-translate { display:inline-flex; align-items:center; gap:6px; border:1.5px solid #06b6d4; border-radius:12px; background:rgba(15, 23, 42, 0.9); color:#38bdf8; font-family:'JetBrains Mono',monospace; font-weight:700; cursor:pointer; transition:all .2s; height:38px; padding:0 12px; font-size:11px; }
+        .capsule-translate:hover { background:rgba(6, 182, 212, 0.18); box-shadow:0 0 12px rgba(6, 182, 212, 0.35); }
+        .capsule-font { display:inline-flex; align-items:center; gap:6px; border:1.5px solid #10b981; border-radius:12px; background:rgba(15, 23, 42, 0.9); color:#f8fafc; font-family:'JetBrains Mono',monospace; font-weight:700; height:38px; padding:0 10px; font-size:11px; }
+        .capsule-font .fsBtn { color:#f8fafc; background:none; border:none; cursor:pointer; font-weight:800; }
+        .capsule-font .fsBtn:hover { color:#38bdf8; }
+        .capsule-font .fsMid { display:inline-flex; align-items:center; gap:4px; color:#34d399; background:none; border:none; cursor:pointer; }
 
-        .audio-speaking { box-shadow: 0 0 15px rgba(234, 179, 8, 0.9), 0 0 30px rgba(16, 185, 129, 0.5); border-color: #facc15 !important; }
+        .audio-speaking { box-shadow: 0 0 18px rgba(6, 182, 212, 0.9), 0 0 32px rgba(16, 185, 129, 0.5); border-color: #22d3ee !important; }
 
         ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: rgba(2, 26, 18, 0.8); }
-        ::-webkit-scrollbar-thumb { background: rgba(234, 179, 8, 0.5); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #facc15; }
+        ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+        ::-webkit-scrollbar-thumb { background: rgba(6, 182, 212, 0.5); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #22d3ee; }
 
         @media print {
             body * { visibility: hidden !important; }
@@ -340,7 +511,7 @@
         }
     </style>
 </head>
-<body id="appBody" class="min-h-screen flex flex-col justify-between relative selection:bg-amber-400 selection:text-slate-950 pb-24">
+<body id="appBody" class="min-h-screen flex flex-col justify-between relative selection:bg-cyan-500 selection:text-slate-950 pb-24">
 
     <!-- ========================================================================= -->
     <!-- 0. AREA CETAK STRUK THERMAL 58MM (UNTUK PRINTER KASIR)                    -->
@@ -396,13 +567,13 @@
     <!-- ========================================================================= -->
     <!-- 2. BOOT LOADING SCREEN (AUTO-DISMISS 1.5 DETIK & JAM REAL-TIME)           -->
     <!-- ========================================================================= -->
-    <div id="loadingOverlay" class="fixed inset-0 z-[10000] bg-emerald-950 text-white flex flex-col items-center justify-between p-6 transition-opacity duration-700 select-none">
+    <div id="loadingOverlay" class="fixed inset-0 z-[10000] bg-slate-950 text-white flex flex-col items-center justify-between p-6 transition-opacity duration-700 select-none">
         <div class="text-center mt-2 space-y-2 z-10">
-            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-emerald-900/90 border border-amber-400/60 text-xs font-mono text-amber-300 shadow-lg">
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-amber-400/60 text-xs font-mono text-amber-300 shadow-lg">
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
                 <span id="loadingClock">Memuat Hari &amp; Waktu Real-Time WIB...</span>
             </div>
-            <h2 class="text-xl sm:text-3xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-400 to-emerald-400 flex items-center justify-center gap-2.5 font-tech uppercase">
+            <h2 class="text-xl sm:text-3xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-300 to-emerald-400 flex items-center justify-center gap-2.5 font-tech uppercase">
                 <i class="fa-solid fa-crown text-amber-400"></i> <span class="app-name-display">SEBLAK ASMARA</span> — POS PRO V5.8
             </h2>
             <p class="text-xs text-amber-200/80 font-mono">Terminal Kasir Emerald Gold • Pembukuan 4 Periode • Bumi 3D Realistis</p>
@@ -422,7 +593,7 @@
                 <span id="loadingStatusText">Menginisialisasi Terminal Kasir &amp; Bumi 3D...</span>
                 <span id="loadingPercent" class="text-amber-400 font-bold">100%</span>
             </div>
-            <div class="w-full h-2.5 bg-emerald-900 rounded-full overflow-hidden border border-amber-500/50 p-0.5">
+            <div class="w-full h-2.5 bg-slate-900 rounded-full overflow-hidden border border-amber-500/50 p-0.5">
                 <div id="loadingProgressBar" class="h-full bg-gradient-to-r from-amber-500 via-yellow-400 to-emerald-400 rounded-full w-full transition-all duration-300"></div>
             </div>
             <div class="pt-1">
@@ -439,7 +610,7 @@
     <!-- ========================================================================= -->
     <!-- 3. SCREENSAVER STANDBY BUMI 3D EMERALD GOLD                              -->
     <!-- ========================================================================= -->
-    <div id="screensaverOverlay" class="fixed inset-0 z-[9800] bg-emerald-950/95 backdrop-blur-lg text-white hidden flex-col items-center justify-between p-6 select-none transition-opacity duration-500" onclick="closeScreensaverOnBg(event)">
+    <div id="screensaverOverlay" class="fixed inset-0 z-[9800] bg-slate-950/95 backdrop-blur-lg text-white hidden flex-col items-center justify-between p-6 select-none transition-opacity duration-500" onclick="closeScreensaverOnBg(event)">
         <div class="w-full flex items-center justify-between z-20 px-2 sm:px-6">
             <div class="flex items-center space-x-3">
                 <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-400/50 flex items-center justify-center text-amber-300 text-lg shadow">
@@ -458,7 +629,7 @@
         <div class="relative w-full h-[360px] sm:h-[430px] my-auto flex items-center justify-center pointer-events-none">
             <div id="ssEarthCanvas" class="w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] absolute"></div>
             <div class="z-20 flex flex-col items-center text-center max-w-4xl px-4 space-y-2">
-                <div class="px-3.5 py-1 rounded-full bg-emerald-950/90 border border-amber-500/50 text-amber-300 font-mono text-xs uppercase tracking-widest">
+                <div class="px-3.5 py-1 rounded-full bg-slate-900/90 border border-amber-500/50 text-amber-300 font-mono text-xs uppercase tracking-widest">
                     <i class="fa-solid fa-lock text-emerald-400 mr-1"></i> <span class="app-name-display">SEBLAK ASMARA</span> — STANDBY MODE
                 </div>
                 <div id="screensaverClock" class="text-5xl sm:text-7xl lg:text-8xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-300 to-emerald-300 font-tech drop-shadow-2xl">
@@ -467,14 +638,14 @@
                 <div id="screensaverDate" class="text-sm sm:text-lg font-bold text-amber-400 uppercase tracking-widest font-mono">
                     Memuat Hari &amp; Tanggal...
                 </div>
-                <div id="screensaverPosStatus" class="text-xs text-amber-300 font-mono tracking-wider uppercase font-bold bg-emerald-950/90 px-5 py-2 rounded-full border border-amber-500/50 shadow-lg">
+                <div id="screensaverPosStatus" class="text-xs text-amber-300 font-mono tracking-wider uppercase font-bold bg-slate-900/90 px-5 py-2 rounded-full border border-amber-500/50 shadow-lg">
                     OMZET HARI INI: Rp 0 • LABA BERSIH: Rp 0 • TRANSAKSI: 0
                 </div>
             </div>
         </div>
 
         <div class="z-20 w-full max-w-3xl mx-auto px-4 mb-2 pointer-events-auto">
-            <div class="bg-emerald-900/80 border border-amber-500/50 p-4 rounded-2xl shadow-2xl backdrop-blur text-center space-y-1">
+            <div class="bg-slate-900/80 border border-amber-500/50 p-4 rounded-2xl shadow-2xl backdrop-blur text-center space-y-1">
                 <div class="text-amber-300 text-xs font-mono font-bold uppercase tracking-wider">
                     <i class="fa-solid fa-chart-pie text-emerald-400 mr-1"></i> Pembukuan Harian, Mingguan, Bulanan &amp; Tahunan Otomatis
                 </div>
@@ -483,7 +654,7 @@
     </div>
 
     <!-- ACCENT BAR EMERALD GOLD -->
-    <div class="h-1.5 w-full bg-gradient-to-r from-emerald-600 via-amber-500 to-yellow-400 shadow-[0_0_20px_rgba(234,179,8,0.6)] relative z-20"></div>
+    <div class="h-1.5 w-full bg-gradient-to-r from-cyan-500 via-emerald-400 to-amber-500 shadow-[0_0_20px_rgba(6,182,212,0.7)] relative z-20"></div>
 
     <!-- ========================================================================= -->
     <!-- 4. WORKSPACE CONTAINER UTAMA                                              -->
@@ -494,16 +665,16 @@
         <header class="w-full bg-[var(--bg-header)] backdrop-blur-md p-3 md:p-4 rounded-2xl border-2 border-[var(--border-color)] shadow-xl flex flex-col gap-3">
             <div class="flex flex-wrap items-center justify-between gap-3">
                 <div class="flex items-center gap-3 min-w-0 flex-1">
-                    <div class="p-3 bg-emerald-950 rounded-xl border-2 border-amber-400/60 shadow-inner shrink-0">
-                        <i class="fa-solid fa-crown text-amber-400 text-2xl sm:text-3xl animate-pulse"></i>
+                    <div class="p-3 bg-slate-950 rounded-xl border-2 border-cyan-500/60 shadow-inner shrink-0">
+                        <i class="fa-solid fa-cash-register text-cyan-400 text-2xl sm:text-3xl animate-pulse"></i>
                     </div>
                     <div class="min-w-0">
                         <div class="flex items-center gap-1.5 flex-wrap">
-                            <span class="bg-emerald-900/90 text-amber-300 border border-amber-400/50 text-[10px] font-mono px-2 py-0.5 rounded font-bold uppercase">POS Terminal V5.8</span>
+                            <span class="bg-slate-900/90 text-amber-300 border border-amber-400/50 text-[10px] font-mono px-2 py-0.5 rounded font-bold uppercase">POS Terminal V5.8</span>
                             <span class="bg-amber-950/90 text-amber-300 border border-amber-500/50 text-[10px] font-mono px-2 py-0.5 rounded font-bold uppercase">Pembukuan 4 Periode</span>
-                            <span class="bg-emerald-950/90 text-emerald-300 border border-emerald-500/50 text-[10px] font-mono px-2 py-0.5 rounded font-bold uppercase">3D Earth Engine</span>
+                            <span class="bg-slate-900/90 text-emerald-300 border border-emerald-500/50 text-[10px] font-mono px-2 py-0.5 rounded font-bold uppercase">3D Earth Engine</span>
                         </div>
-                        <h1 class="font-tech text-lg sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-400 to-emerald-400 uppercase truncate mt-0.5 app-name-display">
+                        <h1 class="font-tech text-lg sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-300 to-emerald-400 uppercase truncate mt-0.5 app-name-display">
                             SEBLAK ASMARA
                         </h1>
                         <div class="flex flex-wrap gap-3 mt-0.5">
@@ -518,11 +689,11 @@
                 </div>
 
                 <!-- JAM REAL-TIME WIB HEADER -->
-                <div class="flex items-center bg-emerald-950 border-2 border-amber-400/50 px-4 py-2 rounded-xl shadow-lg shrink-0">
-                    <i class="fa-regular fa-clock text-amber-400 animate-pulse text-xl mr-3"></i>
+                <div class="flex items-center bg-slate-950 border border-cyan-500/50 px-4 py-2 rounded-xl shadow-lg shrink-0">
+                    <i class="fa-regular fa-clock text-cyan-400 animate-pulse text-xl mr-3"></i>
                     <div class="flex flex-col text-left">
                         <span id="lbl-real-day" class="text-[10px] font-bold text-emerald-300 font-mono uppercase">Memuat Hari...</span>
-                        <span id="lbl-real-clock" class="text-base sm:text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-emerald-400 font-tech tracking-widest">00:00:00 WIB</span>
+                        <span id="lbl-real-clock" class="text-base sm:text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-emerald-400 font-tech tracking-widest">00:00:00 WIB</span>
                     </div>
                 </div>
             </div>
@@ -530,19 +701,19 @@
             <!-- NAVBAR TOMBOL NAVIGATION -->
             <div class="flex flex-wrap items-center justify-between gap-2 pt-2.5 border-t border-[var(--border-color)] font-mono text-xs">
                 <div class="flex flex-wrap items-center gap-2">
-                    <button type="button" onclick="switchTab('kasir')" id="hdrBtnKasir" class="px-3.5 py-2 rounded-xl bg-amber-500 text-slate-950 font-black flex items-center gap-1.5 shadow cursor-pointer transition">
+                    <button type="button" onclick="switchTab('kasir')" id="hdrBtnKasir" class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-cyan-600 to-teal-600 text-white font-black flex items-center gap-1.5 shadow cursor-pointer transition">
                         <i class="fa-solid fa-cash-register"></i> <span data-i18n="nav_kasir">TERMINAL KASIR</span>
                     </button>
-                    <button type="button" onclick="switchTab('laporan')" id="hdrBtnLaporan" class="px-3.5 py-2 rounded-xl bg-emerald-900/90 hover:bg-emerald-850 text-amber-300 border border-amber-400/60 font-bold flex items-center gap-1.5 cursor-pointer transition">
+                    <button type="button" onclick="switchTab('laporan')" id="hdrBtnLaporan" class="px-3.5 py-2 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-amber-300 border border-amber-400/60 font-bold flex items-center gap-1.5 cursor-pointer transition">
                         <i class="fa-solid fa-chart-pie"></i> <span data-i18n="nav_pembukuan">PEMBUKUAN &amp; GRAFIK (H/M/B/T)</span>
                     </button>
-                    <button type="button" onclick="switchTab('produk')" id="hdrBtnProduk" class="px-3.5 py-2 rounded-xl bg-emerald-900/90 hover:bg-emerald-850 text-emerald-300 border border-emerald-500/60 font-bold flex items-center gap-1.5 cursor-pointer transition">
+                    <button type="button" onclick="switchTab('produk')" id="hdrBtnProduk" class="px-3.5 py-2 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-emerald-300 border border-emerald-500/60 font-bold flex items-center gap-1.5 cursor-pointer transition">
                         <i class="fa-solid fa-boxes-stacked"></i> <span data-i18n="nav_stok">KELOLA STOK</span>
                     </button>
-                    <button type="button" onclick="switchTab('pelanggan')" id="hdrBtnPelanggan" class="px-3.5 py-2 rounded-xl bg-emerald-900/90 hover:bg-emerald-850 text-yellow-300 border border-yellow-500/60 font-bold flex items-center gap-1.5 cursor-pointer transition">
+                    <button type="button" onclick="switchTab('pelanggan')" id="hdrBtnPelanggan" class="px-3.5 py-2 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-yellow-300 border border-yellow-500/60 font-bold flex items-center gap-1.5 cursor-pointer transition">
                         <i class="fa-solid fa-users"></i> <span data-i18n="nav_pelanggan">CRM PELANGGAN</span>
                     </button>
-                    <button type="button" onclick="switchTab('database')" id="hdrBtnDatabase" class="px-3.5 py-2 rounded-xl bg-emerald-900/90 hover:bg-emerald-850 text-cyan-300 border border-cyan-500/60 font-bold flex items-center gap-1.5 cursor-pointer transition">
+                    <button type="button" onclick="switchTab('database')" id="hdrBtnDatabase" class="px-3.5 py-2 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-cyan-300 border border-cyan-500/60 font-bold flex items-center gap-1.5 cursor-pointer transition">
                         <i class="fa-solid fa-database"></i> <span>MASTER DB</span>
                     </button>
                 </div>
@@ -552,14 +723,14 @@
                     <button type="button" onclick="openAppsModal()" class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-amber-500 via-yellow-400 to-emerald-500 hover:brightness-110 text-slate-950 font-black flex items-center gap-1.5 shadow-lg cursor-pointer transition">
                         <i class="fa-solid fa-cubes-stacked"></i> <span>MY APLIKASI (61)</span>
                     </button>
-                    <button type="button" onclick="openHelpModal()" class="px-3 py-2 rounded-xl bg-emerald-900 hover:bg-emerald-800 text-amber-300 border border-amber-400/50 font-bold flex items-center gap-1.5 cursor-pointer transition">
+                    <button type="button" onclick="openHelpModal()" class="px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-300 border border-amber-400/50 font-bold flex items-center gap-1.5 cursor-pointer transition">
                         <i class="fa-solid fa-user-astronaut"></i> <span>KREDIT &amp; BANTUAN</span>
                     </button>
-                    <button type="button" onclick="toggleScreensaver(true)" class="w-9 h-9 rounded-xl bg-emerald-950 hover:bg-emerald-900 text-amber-300 border border-amber-400/60 flex items-center justify-center cursor-pointer" title="Screensaver Bumi 3D">
+                    <button type="button" onclick="toggleScreensaver(true)" class="w-9 h-9 rounded-xl bg-slate-950 hover:bg-slate-900 text-amber-300 border border-amber-400/60 flex items-center justify-center cursor-pointer" title="Screensaver Bumi 3D">
                         <i class="fa-solid fa-earth-asia"></i>
                     </button>
-                    <button type="button" onclick="toggleThemeMode()" class="w-9 h-9 rounded-xl bg-emerald-950 border border-amber-400/50 text-amber-400 flex items-center justify-center cursor-pointer" title="Mode Gelap/Terang">
-                        <i id="themeIcon" class="fa-solid fa-moon"></i>
+                    <button type="button" onclick="toggleThemeMode()" class="px-3 h-9 rounded-xl bg-slate-950 border border-cyan-500/50 text-amber-400 hover:border-amber-400 flex items-center justify-center gap-1.5 cursor-pointer font-bold text-xs" title="Ubah Mode Gelap / Terang (Kontras Tinggi)">
+                        <i id="themeIcon" class="fa-solid fa-moon"></i> <span id="themeText">DARK</span>
                     </button>
                     <div id="ctrlGroupDash" class="flex items-center gap-1.5"></div>
                 </div>
@@ -570,49 +741,49 @@
         <!-- 5. RINGKASAN EKSEKUTIF (LIVE KPI BAR)                                     -->
         <!-- ========================================================================= -->
         <section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 font-mono">
-            <div class="cmd-card p-3.5 border-l-4 border-l-amber-400">
-                <div class="flex justify-between items-center text-[10px] text-amber-300/80 font-bold uppercase">
+            <div class="cmd-card p-3.5 border-l-4 border-l-cyan-400">
+                <div class="flex justify-between items-center text-[10px] text-slate-300 font-bold uppercase">
                     <span>Omzet Hari Ini</span>
-                    <i class="fa-solid fa-calendar-day text-amber-400"></i>
+                    <i class="fa-solid fa-calendar-day text-cyan-400"></i>
                 </div>
-                <div id="kpiTodayOmzet" class="text-lg sm:text-xl font-tech font-black text-amber-300 mt-1">Rp 0</div>
+                <div id="kpiTodayOmzet" class="text-lg sm:text-xl font-tech font-black text-cyan-400 mt-1">Rp 0</div>
                 <span id="kpiTodayCount" class="text-[10px] text-slate-400 block">0 Transaksi Hari Ini</span>
             </div>
 
-            <div class="cmd-card p-3.5 border-l-4 border-l-emerald-400">
-                <div class="flex justify-between items-center text-[10px] text-emerald-300/80 font-bold uppercase">
+            <div class="cmd-card p-3.5 border-l-4 border-l-teal-400">
+                <div class="flex justify-between items-center text-[10px] text-slate-300 font-bold uppercase">
                     <span>Omzet Minggu Ini</span>
-                    <i class="fa-solid fa-calendar-week text-emerald-400"></i>
+                    <i class="fa-solid fa-calendar-week text-teal-400"></i>
                 </div>
-                <div id="kpiWeekOmzet" class="text-lg sm:text-xl font-tech font-black text-emerald-300 mt-1">Rp 0</div>
+                <div id="kpiWeekOmzet" class="text-lg sm:text-xl font-tech font-black text-emerald-400 mt-1">Rp 0</div>
                 <span id="kpiWeekSub" class="text-[10px] text-slate-400 block">7 Hari Terakhir</span>
             </div>
 
-            <div class="cmd-card p-3.5 border-l-4 border-l-yellow-400">
-                <div class="flex justify-between items-center text-[10px] text-yellow-300/80 font-bold uppercase">
+            <div class="cmd-card p-3.5 border-l-4 border-l-amber-400">
+                <div class="flex justify-between items-center text-[10px] text-slate-300 font-bold uppercase">
                     <span>Omzet Bulan Ini</span>
-                    <i class="fa-solid fa-calendar-days text-yellow-400"></i>
+                    <i class="fa-solid fa-calendar-days text-amber-400"></i>
                 </div>
-                <div id="kpiMonthOmzet" class="text-lg sm:text-xl font-tech font-black text-yellow-300 mt-1">Rp 0</div>
+                <div id="kpiMonthOmzet" class="text-lg sm:text-xl font-tech font-black text-amber-400 mt-1">Rp 0</div>
                 <span id="kpiMonthSub" class="text-[10px] text-slate-400 block">Bulan Berjalan</span>
             </div>
 
-            <div class="cmd-card p-3.5 border-l-4 border-l-lime-400">
-                <div class="flex justify-between items-center text-[10px] text-lime-300/80 font-bold uppercase">
+            <div class="cmd-card p-3.5 border-l-4 border-l-purple-400">
+                <div class="flex justify-between items-center text-[10px] text-slate-300 font-bold uppercase">
                     <span>Omzet Tahun Ini</span>
-                    <i class="fa-solid fa-chart-line text-lime-400"></i>
+                    <i class="fa-solid fa-chart-line text-purple-400"></i>
                 </div>
-                <div id="kpiYearOmzet" class="text-lg sm:text-xl font-tech font-black text-lime-300 mt-1">Rp 0</div>
+                <div id="kpiYearOmzet" class="text-lg sm:text-xl font-tech font-black text-purple-300 mt-1">Rp 0</div>
                 <span id="kpiYearSub" class="text-[10px] text-slate-400 block">Akumulasi Tahunan</span>
             </div>
 
-            <div class="cmd-card p-3.5 border-l-4 border-l-amber-500 col-span-2 sm:col-span-1">
-                <div class="flex justify-between items-center text-[10px] text-amber-300/80 font-bold uppercase">
+            <div class="cmd-card p-3.5 border-l-4 border-l-emerald-400 col-span-2 sm:col-span-1">
+                <div class="flex justify-between items-center text-[10px] text-slate-300 font-bold uppercase">
                     <span>Total Laba Bersih</span>
-                    <i class="fa-solid fa-coins text-amber-400"></i>
+                    <i class="fa-solid fa-coins text-emerald-400"></i>
                 </div>
-                <div id="kpiTotalNetProfit" class="text-lg sm:text-xl font-tech font-black text-amber-300 mt-1">Rp 0</div>
-                <span id="kpiTotalMargin" class="text-[10px] text-emerald-300 block font-bold">Margin Bersih: 0%</span>
+                <div id="kpiTotalNetProfit" class="text-lg sm:text-xl font-tech font-black text-emerald-400 mt-1">Rp 0</div>
+                <span id="kpiTotalMargin" class="text-[10px] text-cyan-300 block font-bold">Margin Bersih: 0%</span>
             </div>
         </section>
 
@@ -628,7 +799,7 @@
                         <i class="fa-solid fa-compass"></i> Menu Utama POS
                     </h2>
                     <nav class="flex flex-row overflow-x-auto lg:flex-col gap-2 font-mono text-xs font-bold hide-scrollbar">
-                        <button type="button" onclick="switchTab('kasir')" id="sideBtn-kasir" class="nav-btn whitespace-nowrap w-full text-left px-4 py-3 rounded-xl bg-amber-500 text-slate-950 flex items-center transition-all shadow-md cursor-pointer font-black">
+                        <button type="button" onclick="switchTab('kasir')" id="sideBtn-kasir" class="nav-btn whitespace-nowrap w-full text-left px-4 py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-teal-600 text-white flex items-center transition-all shadow-md cursor-pointer font-black">
                             <i class="fa-solid fa-cash-register w-6 text-center"></i> Terminal Kasir
                         </button>
                         <button type="button" onclick="switchTab('laporan')" id="sideBtn-laporan" class="nav-btn whitespace-nowrap w-full text-left px-4 py-3 rounded-xl text-[var(--text-main)] hover:bg-amber-500/10 flex items-center transition-all cursor-pointer">
@@ -667,7 +838,7 @@
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 flex-1">
                         <!-- Katalog Produk (7 Cols) -->
                         <div class="lg:col-span-7 flex flex-col">
-                            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-emerald-800 pb-3 mb-3">
+                            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3 mb-3">
                                 <div class="flex items-center gap-2">
                                     <i class="fa-solid fa-fire-flame-curved text-amber-400 text-xl"></i>
                                     <h2 class="text-base sm:text-lg font-tech font-black uppercase text-[var(--text-main)]">Menu Seblak Asmara</h2>
@@ -675,7 +846,7 @@
                                 <div class="flex items-center gap-2 w-full sm:w-auto">
                                     <div class="relative flex-1 sm:w-56">
                                         <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-400 text-xs"></i>
-                                        <input type="text" id="posSearchInput" oninput="loadProducts()" placeholder="Cari nama menu / kategori..." class="w-full pl-8 pr-3 py-1.5 bg-emerald-950 border border-emerald-800 rounded-xl text-xs text-white focus:border-amber-400 outline-none font-mono">
+                                        <input type="text" id="posSearchInput" oninput="loadProducts()" placeholder="Cari nama menu / kategori..." class="w-full pl-8 pr-3 py-1.5 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white focus:border-amber-400 outline-none font-mono">
                                     </div>
                                     <button type="button" onclick="openProductModal()" class="px-3 py-1.5 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-mono text-xs font-bold shrink-0 cursor-pointer">
                                         <i class="fa-solid fa-plus"></i> Menu Baru
@@ -688,8 +859,8 @@
                         </div>
 
                         <!-- Keranjang Belanja & Checkout (5 Cols) -->
-                        <div class="lg:col-span-5 bg-emerald-950/90 p-4 rounded-2xl border border-amber-500/40 flex flex-col shadow-inner">
-                            <div class="flex items-center justify-between border-b border-emerald-800 pb-2.5 mb-3">
+                        <div class="lg:col-span-5 bg-slate-900/90 p-4 rounded-2xl border-2 border-cyan-500/40 flex flex-col shadow-inner">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-2.5 mb-3">
                                 <h2 class="text-base font-tech font-black text-amber-400 flex items-center gap-2">
                                     <i class="fa-solid fa-cart-shopping"></i> PESANAN PELANGGAN
                                 </h2>
@@ -698,14 +869,14 @@
                                 </button>
                             </div>
 
-                            <div class="bg-emerald-900/60 p-2.5 rounded-xl border border-emerald-800 mb-3 grid grid-cols-1 sm:grid-cols-2 gap-2 shrink-0">
-                                <input type="text" id="cust-name" placeholder="Nama Pelanggan (Opsional)" class="w-full p-2 bg-emerald-950 border border-emerald-700 rounded-lg text-white text-xs outline-none focus:border-amber-400 font-mono">
-                                <input type="text" id="cust-wa" placeholder="No. WA (Cth: 0812xxx)" class="w-full p-2 bg-emerald-950 border border-emerald-700 rounded-lg text-white text-xs outline-none focus:border-amber-400 font-mono">
+                            <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 mb-3 grid grid-cols-1 sm:grid-cols-2 gap-2 shrink-0">
+                                <input type="text" id="cust-name" placeholder="Nama Pelanggan (Opsional)" class="w-full p-2 bg-slate-950 border border-slate-700 rounded-lg text-white text-xs outline-none focus:border-amber-400 font-mono">
+                                <input type="text" id="cust-wa" placeholder="No. WA (Cth: 0812xxx)" class="w-full p-2 bg-slate-950 border border-slate-700 rounded-lg text-white text-xs outline-none focus:border-amber-400 font-mono">
                             </div>
 
                             <div id="cart-list" class="flex-1 overflow-y-auto space-y-2 mb-3 font-mono min-h-[150px] max-h-[220px] pr-1"></div>
 
-                            <div class="border-t border-emerald-800 pt-3 space-y-2.5 shrink-0 font-mono text-xs">
+                            <div class="border-t border-slate-800 pt-3 space-y-2.5 shrink-0 font-mono text-xs">
                                 <div class="flex justify-between items-center text-slate-300">
                                     <span>Subtotal:</span>
                                     <span id="cart-subtotal" class="font-bold text-white">Rp 0</span>
@@ -714,23 +885,23 @@
                                 <div class="flex justify-between items-center text-slate-300 gap-2">
                                     <span>Diskon:</span>
                                     <div class="flex gap-1.5 w-2/3">
-                                        <select id="disc-type" onchange="renderCart()" class="bg-emerald-950 border border-emerald-700 rounded-lg text-amber-400 font-bold text-xs px-2 py-1.5 outline-none focus:border-amber-400">
+                                        <select id="disc-type" onchange="renderCart()" class="bg-slate-950 border border-slate-700 rounded-lg text-amber-400 font-bold text-xs px-2 py-1.5 outline-none focus:border-amber-400">
                                             <option value="rp">Rp</option>
                                             <option value="percent">%</option>
                                         </select>
-                                        <input type="number" id="cart-discount" oninput="renderCart()" class="flex-1 p-1.5 bg-emerald-950 border border-emerald-700 rounded-lg text-right text-white focus:border-amber-400 outline-none" placeholder="0">
+                                        <input type="number" id="cart-discount" oninput="renderCart()" class="flex-1 p-1.5 bg-slate-950 border border-slate-700 rounded-lg text-right text-white focus:border-amber-400 outline-none" placeholder="0">
                                     </div>
                                 </div>
 
-                                <div class="flex justify-between items-center text-base sm:text-lg font-black text-white bg-emerald-950 px-3 py-2 rounded-xl border border-amber-400/50">
+                                <div class="flex justify-between items-center text-base sm:text-lg font-black text-white bg-slate-950 px-3 py-2.5 rounded-xl border border-emerald-500/50">
                                     <span>TOTAL BAYAR:</span>
-                                    <span id="cart-total" class="text-amber-400 font-tech">Rp 0</span>
+                                    <span id="cart-total" class="text-emerald-400 font-tech text-xl">Rp 0</span>
                                 </div>
 
                                 <div class="grid grid-cols-2 gap-2">
                                     <div>
                                         <label class="text-[10px] text-amber-200/80 block mb-1">Metode Pembayaran:</label>
-                                        <select id="payment-method" onchange="renderCart()" class="w-full p-2 bg-emerald-950 border border-emerald-700 rounded-lg text-white text-xs outline-none focus:border-amber-400">
+                                        <select id="payment-method" onchange="renderCart()" class="w-full p-2 bg-slate-950 border border-slate-700 rounded-lg text-white text-xs outline-none focus:border-amber-400">
                                             <option value="Tunai">💵 Tunai (Cash)</option>
                                             <option value="QRIS">📱 QRIS</option>
                                             <option value="Transfer">🏦 Transfer Bank</option>
@@ -740,20 +911,20 @@
                                     </div>
                                     <div>
                                         <label class="text-[10px] text-amber-200/80 block mb-1">Uang Diterima (Rp):</label>
-                                        <input type="number" id="cash-received" oninput="updateChangeDisplay()" placeholder="Otomatis Pas" class="w-full p-2 bg-emerald-950 border border-emerald-700 rounded-lg text-right text-amber-300 font-bold text-xs outline-none focus:border-amber-400">
+                                        <input type="number" id="cash-received" oninput="updateChangeDisplay()" placeholder="Otomatis Pas" class="w-full p-2 bg-slate-950 border border-slate-700 rounded-lg text-right text-amber-300 font-bold text-xs outline-none focus:border-amber-400">
                                     </div>
                                 </div>
 
                                 <!-- Tombol Uang Cepat & Indikator Kembalian -->
                                 <div class="flex flex-wrap items-center gap-1.5 pt-0.5">
-                                    <button type="button" onclick="setQuickCash('exact')" class="px-2 py-1 rounded bg-emerald-900 hover:bg-emerald-800 border border-amber-400/40 text-amber-300 text-[10px] font-bold cursor-pointer transition">Uang Pas</button>
-                                    <button type="button" onclick="setQuickCash(20000)" class="px-2 py-1 rounded bg-emerald-900 hover:bg-emerald-800 border border-emerald-700 text-slate-200 text-[10px] cursor-pointer transition">20 Rb</button>
-                                    <button type="button" onclick="setQuickCash(50000)" class="px-2 py-1 rounded bg-emerald-900 hover:bg-emerald-800 border border-emerald-700 text-slate-200 text-[10px] cursor-pointer transition">50 Rb</button>
-                                    <button type="button" onclick="setQuickCash(100000)" class="px-2 py-1 rounded bg-emerald-900 hover:bg-emerald-800 border border-emerald-700 text-slate-200 text-[10px] cursor-pointer transition">100 Rb</button>
+                                    <button type="button" onclick="setQuickCash('exact')" class="px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-amber-400/40 text-amber-300 text-[10px] font-bold cursor-pointer transition">Uang Pas</button>
+                                    <button type="button" onclick="setQuickCash(20000)" class="px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 text-[10px] cursor-pointer transition">20 Rb</button>
+                                    <button type="button" onclick="setQuickCash(50000)" class="px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 text-[10px] cursor-pointer transition">50 Rb</button>
+                                    <button type="button" onclick="setQuickCash(100000)" class="px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 text-[10px] cursor-pointer transition">100 Rb</button>
                                     <span id="cart-change" class="ml-auto text-[11px] font-bold text-amber-400 self-center">Kembali: Rp 0</span>
                                 </div>
 
-                                <button type="button" id="btnCheckoutPay" onclick="processCheckout()" class="w-full bg-gradient-to-r from-amber-500 via-yellow-400 to-emerald-500 hover:brightness-110 active:scale-[0.99] text-slate-950 font-tech font-black py-3.5 rounded-xl shadow-[0_0_20px_rgba(234,179,8,0.45)] transition-all uppercase tracking-wider flex items-center justify-center gap-2 text-xs sm:text-sm cursor-pointer">
+                                <button type="button" id="btnCheckoutPay" onclick="processCheckout()" class="w-full bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 hover:brightness-110 active:scale-[0.99] text-slate-950 font-tech font-black py-3.5 rounded-xl shadow-[0_0_20px_rgba(16,185,129,0.5)] transition-all uppercase tracking-wider flex items-center justify-center gap-2 text-xs sm:text-sm cursor-pointer">
                                     <i class="fa-solid fa-print text-base"></i> BAYAR, CATAT PEMBUKUAN &amp; CETAK STRUK
                                 </button>
                                 <p class="text-[10px] text-center text-amber-200/70">*Menampilkan Pratinjau Struk Interaktif, Cetak Printer Thermal 58mm, Struk PDF &amp; Kirim WA.</p>
@@ -770,43 +941,43 @@
                                 <span class="px-2.5 py-0.5 rounded bg-amber-500/20 border border-amber-400 text-amber-300 font-mono text-[10px] font-bold uppercase">Financial Analytics Engine</span>
                                 <span class="px-2.5 py-0.5 rounded bg-emerald-500/20 border border-emerald-400 text-emerald-300 font-mono text-[10px] font-bold uppercase">Real-Time Ledger</span>
                             </div>
-                            <h2 class="text-xl sm:text-2xl font-tech font-black uppercase text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-400 to-emerald-400 mt-1">
+                            <h2 class="text-xl sm:text-2xl font-tech font-black uppercase text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-300 to-emerald-400 mt-1">
                                 <i class="fa-solid fa-chart-pie mr-1 text-amber-400"></i> Pembukuan Harian, Mingguan, Bulanan &amp; Tahunan
                             </h2>
                         </div>
 
                         <div class="flex flex-wrap gap-2 text-xs font-mono font-bold">
-                            <button type="button" onclick="openExpenseModal()" class="bg-emerald-900 hover:bg-emerald-800 text-amber-300 border border-amber-400 px-3 py-2 rounded-xl flex items-center gap-1.5 transition cursor-pointer">
+                            <button type="button" onclick="openExpenseModal()" class="bg-slate-900 hover:bg-slate-800 text-amber-300 border border-amber-400 px-3 py-2 rounded-xl flex items-center gap-1.5 transition cursor-pointer">
                                 <i class="fa-solid fa-file-invoice-dollar"></i> + Catat Pengeluaran
                             </button>
-                            <button type="button" onclick="exportReport('excel')" class="bg-emerald-950 hover:bg-emerald-800 text-emerald-400 border border-emerald-500 px-3 py-2 rounded-xl flex items-center gap-1.5 transition cursor-pointer">
+                            <button type="button" onclick="exportReport('excel')" class="bg-slate-950 hover:bg-slate-800 text-emerald-400 border border-emerald-500 px-3 py-2 rounded-xl flex items-center gap-1.5 transition cursor-pointer">
                                 <i class="fa-solid fa-file-excel"></i> Excel
                             </button>
-                            <button type="button" onclick="exportReport('pdf')" class="bg-emerald-950 hover:bg-emerald-800 text-amber-400 border border-amber-500 px-3 py-2 rounded-xl flex items-center gap-1.5 transition cursor-pointer">
+                            <button type="button" onclick="exportReport('pdf')" class="bg-slate-950 hover:bg-slate-800 text-amber-400 border border-amber-500 px-3 py-2 rounded-xl flex items-center gap-1.5 transition cursor-pointer">
                                 <i class="fa-solid fa-file-pdf"></i> PDF
                             </button>
-                            <button type="button" onclick="exportReport('word')" class="bg-emerald-950 hover:bg-emerald-800 text-sky-400 border border-sky-500 px-3 py-2 rounded-xl flex items-center gap-1.5 transition cursor-pointer">
+                            <button type="button" onclick="exportReport('word')" class="bg-slate-950 hover:bg-slate-800 text-sky-400 border border-sky-500 px-3 py-2 rounded-xl flex items-center gap-1.5 transition cursor-pointer">
                                 <i class="fa-solid fa-file-word"></i> Word
                             </button>
-                            <button type="button" onclick="exportReport('wa')" class="bg-emerald-950 hover:bg-emerald-800 text-teal-300 border border-teal-400 px-3 py-2 rounded-xl flex items-center gap-1.5 transition cursor-pointer">
+                            <button type="button" onclick="exportReport('wa')" class="bg-slate-950 hover:bg-slate-800 text-teal-300 border border-teal-400 px-3 py-2 rounded-xl flex items-center gap-1.5 transition cursor-pointer">
                                 <i class="fa-brands fa-whatsapp"></i> WA
                             </button>
                         </div>
                     </div>
 
-                    <div class="bg-emerald-950/90 p-3.5 rounded-2xl border border-amber-400/40 flex flex-wrap items-center justify-between gap-3 font-mono text-xs">
+                    <div class="bg-slate-900/90 p-3.5 rounded-2xl border border-amber-400/40 flex flex-wrap items-center justify-between gap-3 font-mono text-xs">
                         <div class="flex flex-wrap items-center gap-1.5">
                             <span class="text-amber-300/80 font-bold mr-1"><i class="fa-solid fa-calendar-check text-amber-400 mr-1"></i>PERIODE:</span>
-                            <button type="button" onclick="setBookkeepingPeriod('daily')" id="btnPeriod-daily" class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-emerald-600 text-slate-950 font-black shadow cursor-pointer transition">
+                            <button type="button" onclick="setBookkeepingPeriod('daily')" id="btnPeriod-daily" class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-cyan-600 to-teal-600 text-white font-black shadow cursor-pointer transition">
                                 1. HARIAN (14 Hari)
                             </button>
-                            <button type="button" onclick="setBookkeepingPeriod('weekly')" id="btnPeriod-weekly" class="px-3.5 py-2 rounded-xl bg-emerald-900 hover:bg-emerald-800 text-slate-300 border border-emerald-700 font-bold cursor-pointer transition">
+                            <button type="button" onclick="setBookkeepingPeriod('weekly')" id="btnPeriod-weekly" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 font-bold cursor-pointer transition">
                                 2. MINGGUAN (8 Minggu)
                             </button>
-                            <button type="button" onclick="setBookkeepingPeriod('monthly')" id="btnPeriod-monthly" class="px-3.5 py-2 rounded-xl bg-emerald-900 hover:bg-emerald-800 text-slate-300 border border-emerald-700 font-bold cursor-pointer transition">
+                            <button type="button" onclick="setBookkeepingPeriod('monthly')" id="btnPeriod-monthly" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 font-bold cursor-pointer transition">
                                 3. BULANAN (Jan - Des)
                             </button>
-                            <button type="button" onclick="setBookkeepingPeriod('yearly')" id="btnPeriod-yearly" class="px-3.5 py-2 rounded-xl bg-emerald-900 hover:bg-emerald-800 text-slate-300 border border-emerald-700 font-bold cursor-pointer transition">
+                            <button type="button" onclick="setBookkeepingPeriod('yearly')" id="btnPeriod-yearly" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 font-bold cursor-pointer transition">
                                 4. TAHUNAN (Multi-Tahun)
                             </button>
                         </div>
@@ -816,60 +987,60 @@
                             <button type="button" onclick="setBookkeepingChartStyle('rainbowBar')" id="btnStyle-rainbowBar" class="px-3 py-1.5 rounded-lg bg-amber-500 text-slate-950 font-black cursor-pointer transition">
                                 📊 Bar Warna-Warni
                             </button>
-                            <button type="button" onclick="setBookkeepingChartStyle('neonArea')" id="btnStyle-neonArea" class="px-3 py-1.5 rounded-lg bg-emerald-900 text-slate-300 border border-emerald-700 hover:text-white cursor-pointer transition">
+                            <button type="button" onclick="setBookkeepingChartStyle('neonArea')" id="btnStyle-neonArea" class="px-3 py-1.5 rounded-lg bg-slate-900 text-slate-300 border border-slate-700 hover:text-white cursor-pointer transition">
                                 📈 Area Line Neon
                             </button>
-                            <button type="button" onclick="setBookkeepingChartStyle('comboProfit')" id="btnStyle-comboProfit" class="px-3 py-1.5 rounded-lg bg-emerald-900 text-slate-300 border border-emerald-700 hover:text-white cursor-pointer transition">
+                            <button type="button" onclick="setBookkeepingChartStyle('comboProfit')" id="btnStyle-comboProfit" class="px-3 py-1.5 rounded-lg bg-slate-900 text-slate-300 border border-slate-700 hover:text-white cursor-pointer transition">
                                 💹 Omzet vs Laba
                             </button>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 font-mono">
-                        <div class="bg-emerald-900/95 p-4 rounded-2xl border-2 border-amber-400/50 shadow-lg">
-                            <div class="flex justify-between text-xs text-amber-300 font-bold uppercase">
+                        <div class="bg-slate-900/95 p-4 rounded-2xl border-l-4 border-l-cyan-400 border border-slate-800 shadow-lg">
+                            <div class="flex justify-between text-xs text-slate-300 font-bold uppercase">
                                 <span id="lblPeriodOmzetTitle">Omzet Pemasukan</span>
-                                <i class="fa-solid fa-arrow-trend-up text-lg"></i>
+                                <i class="fa-solid fa-sack-dollar text-cyan-400 text-lg"></i>
                             </div>
-                            <p id="report-revenue" class="text-2xl font-tech font-black text-white mt-1">Rp 0</p>
-                            <span id="report-count" class="text-[11px] text-amber-400 block mt-0.5">0 Transaksi</span>
+                            <p id="report-revenue" class="text-2xl font-tech font-black text-cyan-400 mt-1">Rp 0</p>
+                            <span id="report-count" class="text-[11px] text-slate-400 block mt-0.5">0 Transaksi</span>
                         </div>
 
-                        <div class="bg-emerald-900/95 p-4 rounded-2xl border-2 border-emerald-500/50 shadow-lg">
-                            <div class="flex justify-between text-xs text-emerald-300 font-bold uppercase">
+                        <div class="bg-slate-900/95 p-4 rounded-2xl border-l-4 border-l-amber-400 border border-slate-800 shadow-lg">
+                            <div class="flex justify-between text-xs text-slate-300 font-bold uppercase">
                                 <span>HPP Modal &amp; Diskon</span>
-                                <i class="fa-solid fa-boxes-packing text-lg"></i>
+                                <i class="fa-solid fa-boxes-packing text-amber-400 text-lg"></i>
                             </div>
-                            <p id="report-cogs" class="text-2xl font-tech font-black text-emerald-300 mt-1">Rp 0</p>
-                            <span id="report-discount-sub" class="text-[11px] text-emerald-400/80 block mt-0.5">Total Diskon: Rp 0</span>
+                            <p id="report-cogs" class="text-2xl font-tech font-black text-amber-400 mt-1">Rp 0</p>
+                            <span id="report-discount-sub" class="text-[11px] text-slate-400 block mt-0.5">Total Diskon: Rp 0</span>
                         </div>
 
-                        <div class="bg-emerald-900/95 p-4 rounded-2xl border-2 border-rose-500/50 shadow-lg">
-                            <div class="flex justify-between text-xs text-rose-300 font-bold uppercase">
+                        <div class="bg-slate-900/95 p-4 rounded-2xl border-l-4 border-l-rose-500 border border-slate-800 shadow-lg">
+                            <div class="flex justify-between text-xs text-slate-300 font-bold uppercase">
                                 <span>Biaya Operasional</span>
-                                <i class="fa-solid fa-money-bill-transfer text-lg"></i>
+                                <i class="fa-solid fa-arrow-trend-down text-rose-400 text-lg"></i>
                             </div>
                             <p id="report-expense" class="text-2xl font-tech font-black text-rose-400 mt-1">Rp 0</p>
-                            <span id="report-expense-count" class="text-[11px] text-rose-300/80 block mt-0.5">0 Catatan</span>
+                            <span id="report-expense-count" class="text-[11px] text-slate-400 block mt-0.5">0 Catatan</span>
                         </div>
 
-                        <div class="bg-emerald-900/95 p-4 rounded-2xl border-2 border-yellow-400/60 shadow-lg">
-                            <div class="flex justify-between text-xs text-yellow-300 font-bold uppercase">
-                                <span>Laba Bersih</span>
-                                <i class="fa-solid fa-sack-dollar text-lg"></i>
+                        <div class="bg-slate-900/95 p-4 rounded-2xl border-l-4 border-l-emerald-400 border border-slate-800 shadow-lg">
+                            <div class="flex justify-between text-xs text-slate-300 font-bold uppercase">
+                                <span>Laba Bersih (Net Profit)</span>
+                                <i class="fa-solid fa-chart-line text-emerald-400 text-lg"></i>
                             </div>
-                            <p id="report-net-profit" class="text-2xl font-tech font-black text-yellow-300 mt-1">Rp 0</p>
+                            <p id="report-net-profit" class="text-2xl font-tech font-black text-emerald-400 mt-1">Rp 0</p>
                             <span id="report-profit-margin" class="text-[11px] text-emerald-300 font-bold block mt-0.5">Margin: 0%</span>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
-                        <div class="lg:col-span-8 bg-emerald-950/90 p-4 rounded-2xl border-2 border-amber-400/40 shadow-xl flex flex-col">
-                            <div class="flex flex-wrap justify-between items-center border-b border-emerald-800 pb-2.5 mb-3 gap-2">
+                        <div class="lg:col-span-8 bg-slate-900/90 p-4 rounded-2xl border-2 border-amber-400/40 shadow-xl flex flex-col">
+                            <div class="flex flex-wrap justify-between items-center border-b border-slate-800 pb-2.5 mb-3 gap-2">
                                 <h3 id="mainChartHeading" class="text-xs sm:text-sm font-tech font-black text-amber-300 uppercase flex items-center gap-2">
                                     <i class="fa-solid fa-chart-column text-emerald-400"></i> Grafik Pembukuan Harian
                                 </h3>
-                                <span class="text-[10px] font-mono text-emerald-400 bg-emerald-900/80 px-2.5 py-0.5 rounded-full border border-emerald-500/40">
+                                <span class="text-[10px] font-mono text-emerald-400 bg-slate-900/80 px-2.5 py-0.5 rounded-full border border-emerald-500/40">
                                     ● Live Interactive Analytics
                                 </span>
                             </div>
@@ -878,8 +1049,8 @@
                             </div>
                         </div>
 
-                        <div class="lg:col-span-4 bg-emerald-950/90 p-4 rounded-2xl border-2 border-amber-500/40 shadow-xl flex flex-col">
-                            <div class="flex justify-between items-center border-b border-emerald-800 pb-2.5 mb-3">
+                        <div class="lg:col-span-4 bg-slate-900/90 p-4 rounded-2xl border-2 border-amber-500/40 shadow-xl flex flex-col">
+                            <div class="flex justify-between items-center border-b border-slate-800 pb-2.5 mb-3">
                                 <h3 class="text-xs sm:text-sm font-tech font-black text-amber-300 uppercase flex items-center gap-2">
                                     <i class="fa-solid fa-chart-pie text-emerald-400"></i> Metode Bayar
                                 </h3>
@@ -893,8 +1064,8 @@
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
-                        <div class="lg:col-span-6 bg-emerald-950 rounded-2xl border border-amber-400/40 overflow-hidden flex flex-col">
-                            <div class="p-3 bg-emerald-900 border-b border-emerald-800 flex justify-between items-center">
+                        <div class="lg:col-span-6 bg-slate-950 rounded-2xl border border-amber-400/40 overflow-hidden flex flex-col">
+                            <div class="p-3 bg-slate-900 border-b border-slate-800 flex justify-between items-center">
                                 <h3 class="font-tech text-xs font-black text-amber-300 uppercase">
                                     <i class="fa-solid fa-book-bookmark mr-1"></i> Rekap Pembukuan (<span id="lblTablePeriodName">Harian</span>)
                                 </h3>
@@ -902,7 +1073,7 @@
                             </div>
                             <div class="overflow-x-auto max-h-[290px]">
                                 <table class="w-full text-left border-collapse text-[11px] font-mono">
-                                    <thead class="bg-emerald-900/90 border-b border-amber-400/50 text-slate-300 sticky top-0">
+                                    <thead class="bg-slate-900/90 border-b border-amber-400/50 text-slate-300 sticky top-0">
                                         <tr>
                                             <th class="p-2.5">Periode Waktu</th>
                                             <th class="p-2.5 text-right">Omzet (Rp)</th>
@@ -910,13 +1081,13 @@
                                             <th class="p-2.5 text-right">Laba Bersih</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="bookkeeping-summary-body" class="text-slate-100 divide-y divide-emerald-800/80"></tbody>
+                                    <tbody id="bookkeeping-summary-body" class="text-slate-100 divide-y divide-slate-800"></tbody>
                                 </table>
                             </div>
                         </div>
 
-                        <div class="lg:col-span-6 bg-emerald-950 rounded-2xl border border-emerald-500/40 overflow-hidden flex flex-col">
-                            <div class="p-3 bg-emerald-900 border-b border-emerald-800 flex justify-between items-center">
+                        <div class="lg:col-span-6 bg-slate-950 rounded-2xl border border-emerald-500/40 overflow-hidden flex flex-col">
+                            <div class="p-3 bg-slate-900 border-b border-slate-800 flex justify-between items-center">
                                 <h3 class="font-tech text-xs font-black text-emerald-400 uppercase">
                                     <i class="fa-solid fa-receipt mr-1"></i> Jurnal Transaksi Penjualan Kasir
                                 </h3>
@@ -924,7 +1095,7 @@
                             </div>
                             <div class="overflow-x-auto max-h-[290px]">
                                 <table class="w-full text-left border-collapse text-[11px] font-mono">
-                                    <thead class="bg-emerald-900/90 border-b border-emerald-500/50 text-slate-300 sticky top-0">
+                                    <thead class="bg-slate-900/90 border-b border-emerald-500/50 text-slate-300 sticky top-0">
                                         <tr>
                                             <th class="p-2.5">No. TRX / Waktu</th>
                                             <th class="p-2.5">Pelanggan</th>
@@ -934,13 +1105,13 @@
                                             <th class="p-2.5 text-center">Struk</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="report-table-body" class="text-slate-100 divide-y divide-emerald-800/80"></tbody>
+                                    <tbody id="report-table-body" class="text-slate-100 divide-y divide-slate-800"></tbody>
                                 </table>
                             </div>
                         </div>
 
-                        <div class="lg:col-span-12 bg-emerald-950 rounded-2xl border border-rose-500/40 overflow-hidden flex flex-col">
-                            <div class="p-3 bg-emerald-900 border-b border-emerald-800 flex justify-between items-center">
+                        <div class="lg:col-span-12 bg-slate-950 rounded-2xl border border-rose-500/40 overflow-hidden flex flex-col">
+                            <div class="p-3 bg-slate-900 border-b border-slate-800 flex justify-between items-center">
                                 <h3 class="font-tech text-xs font-black text-rose-400 uppercase">
                                     <i class="fa-solid fa-file-invoice-dollar mr-1"></i> Jurnal Pengeluaran Operasional Toko
                                 </h3>
@@ -950,7 +1121,7 @@
                             </div>
                             <div class="overflow-x-auto max-h-[220px]">
                                 <table class="w-full text-left border-collapse text-[11px] font-mono">
-                                    <thead class="bg-emerald-900/90 border-b border-rose-500/50 text-slate-300 sticky top-0">
+                                    <thead class="bg-slate-900/90 border-b border-rose-500/50 text-slate-300 sticky top-0">
                                         <tr>
                                             <th class="p-2.5">ID / Tanggal</th>
                                             <th class="p-2.5">Kategori</th>
@@ -959,7 +1130,7 @@
                                             <th class="p-2.5 text-center">Hapus</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="expense-table-body" class="text-slate-100 divide-y divide-emerald-800/80"></tbody>
+                                    <tbody id="expense-table-body" class="text-slate-100 divide-y divide-slate-800"></tbody>
                                 </table>
                             </div>
                         </div>
@@ -979,9 +1150,9 @@
                             <i class="fa-solid fa-plus"></i> Tambah Menu Baru
                         </button>
                     </div>
-                    <div class="overflow-x-auto border border-emerald-800 rounded-2xl bg-emerald-950">
+                    <div class="overflow-x-auto border border-slate-800 rounded-2xl bg-slate-950">
                         <table class="w-full text-left border-collapse text-xs font-mono">
-                            <thead class="bg-emerald-900 border-b-2 border-amber-400 text-slate-200">
+                            <thead class="bg-slate-900 border-b-2 border-amber-400 text-slate-200">
                                 <tr>
                                     <th class="p-3">Kode</th>
                                     <th class="p-3">Nama Menu</th>
@@ -993,7 +1164,7 @@
                                     <th class="p-3 text-center">Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody id="inventory-table-body" class="text-slate-100 divide-y divide-emerald-800"></tbody>
+                            <tbody id="inventory-table-body" class="text-slate-100 divide-y divide-slate-800"></tbody>
                         </table>
                     </div>
                 </div>
@@ -1007,19 +1178,19 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-                        <div class="bg-emerald-950 p-4 rounded-2xl border border-amber-400/40 shadow-inner md:col-span-1 space-y-3">
-                            <h3 class="text-amber-300 font-bold uppercase text-xs tracking-wide border-b border-emerald-800 pb-2 font-tech">
+                        <div class="bg-slate-950 p-4 rounded-2xl border border-amber-400/40 shadow-inner md:col-span-1 space-y-3">
+                            <h3 class="text-amber-300 font-bold uppercase text-xs tracking-wide border-b border-slate-800 pb-2 font-tech">
                                 <i class="fa-solid fa-bullhorn mr-1"></i> Broadcast Promo WA
                             </h3>
-                            <textarea id="promo-text" rows="5" class="w-full p-2.5 bg-emerald-900 border border-emerald-700 rounded-xl text-white text-xs outline-none focus:border-amber-400 font-mono" oninput="savePromo()" placeholder="Tulis pesan promo Seblak Asmara..."></textarea>
+                            <textarea id="promo-text" rows="5" class="w-full p-2.5 bg-slate-900 border border-slate-700 rounded-xl text-white text-xs outline-none focus:border-amber-400 font-mono" oninput="savePromo()" placeholder="Tulis pesan promo Seblak Asmara..."></textarea>
                             <button type="button" onclick="sendPromoAll()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 rounded-xl shadow-md text-xs transition-colors font-mono cursor-pointer flex items-center justify-center gap-1.5">
                                 <i class="fa-brands fa-whatsapp text-base"></i> Kirim ke Pelanggan Terpilih
                             </button>
                         </div>
 
-                        <div class="overflow-x-auto flex-1 border border-emerald-800 rounded-2xl bg-emerald-950 md:col-span-2">
+                        <div class="overflow-x-auto flex-1 border border-slate-800 rounded-2xl bg-slate-950 md:col-span-2">
                             <table class="w-full text-left border-collapse text-xs font-mono">
-                                <thead class="bg-emerald-900 border-b-2 border-amber-400 text-slate-200">
+                                <thead class="bg-slate-900 border-b-2 border-amber-400 text-slate-200">
                                     <tr>
                                         <th class="p-3">Nama Pelanggan</th>
                                         <th class="p-3">No. WhatsApp</th>
@@ -1028,7 +1199,7 @@
                                         <th class="p-3 text-center">Kirim Promo</th>
                                     </tr>
                                 </thead>
-                                <tbody id="customer-table-body" class="text-slate-100 divide-y divide-emerald-800"></tbody>
+                                <tbody id="customer-table-body" class="text-slate-100 divide-y divide-slate-800"></tbody>
                             </table>
                         </div>
                     </div>
@@ -1036,7 +1207,7 @@
 
                 <!-- TAB 5: MASTER DATABASE (BACKUP, RESTORE & DEMO) -->
                 <div id="tab-database" class="tab-content hidden-ui grid grid-cols-1 md:grid-cols-3 gap-5 my-auto">
-                    <div class="bg-emerald-950 p-6 rounded-2xl border border-emerald-500/40 text-center flex flex-col justify-between shadow-inner">
+                    <div class="bg-slate-950 p-6 rounded-2xl border border-emerald-500/40 text-center flex flex-col justify-between shadow-inner">
                         <div>
                             <i class="fa-solid fa-cloud-arrow-down text-5xl text-emerald-400 mb-4"></i>
                             <h2 class="text-base font-tech font-black text-white mb-2">Backup Database (.JSON)</h2>
@@ -1047,7 +1218,7 @@
                         </button>
                     </div>
 
-                    <div class="bg-emerald-950 p-6 rounded-2xl border border-amber-500/40 text-center flex flex-col justify-between shadow-inner">
+                    <div class="bg-slate-950 p-6 rounded-2xl border border-amber-500/40 text-center flex flex-col justify-between shadow-inner">
                         <div>
                             <i class="fa-solid fa-cloud-arrow-up text-5xl text-amber-400 mb-4"></i>
                             <h2 class="text-base font-tech font-black text-white mb-2">Restore Database (.JSON)</h2>
@@ -1059,7 +1230,7 @@
                         </label>
                     </div>
 
-                    <div class="bg-emerald-950 p-6 rounded-2xl border border-yellow-500/40 text-center flex flex-col justify-between shadow-inner">
+                    <div class="bg-slate-950 p-6 rounded-2xl border border-yellow-500/40 text-center flex flex-col justify-between shadow-inner">
                         <div>
                             <i class="fa-solid fa-chart-pie text-5xl text-yellow-400 mb-4"></i>
                             <h2 class="text-base font-tech font-black text-white mb-2">Generator Data Pembukuan</h2>
@@ -1074,20 +1245,20 @@
                 <!-- =============================================================== -->
                 <!-- PANEL KREDIT PROGRAMMER DENGAN BUMI 3D & 61 MY APLIKASI SAYA    -->
                 <!-- =============================================================== -->
-                <div class="mt-6 bg-gradient-to-r from-[#021a12] via-[#083a27] to-[#021a12] border-2 border-amber-400/60 rounded-2xl p-4 sm:p-5 shadow-[0_0_25px_rgba(234,179,8,0.2)] relative overflow-hidden shrink-0">
-                    <div class="flex flex-wrap items-center justify-between border-b border-emerald-800 pb-2.5 mb-4 gap-2">
+                <div class="credit-banner-panel mt-6 bg-gradient-to-r from-[#020617] via-[#071526] to-[#020617] border-2 border-cyan-500/60 rounded-2xl p-4 sm:p-5 shadow-[0_0_25px_rgba(6,182,212,0.2)] relative overflow-hidden shrink-0">
+                    <div class="flex flex-wrap items-center justify-between border-b border-slate-800 pb-2.5 mb-4 gap-2">
                         <div class="text-amber-300 font-tech font-black uppercase tracking-wider flex items-center text-xs sm:text-sm">
                             <i class="fa-solid fa-earth-asia mr-2 text-emerald-400 animate-spin" style="animation-duration:10s;"></i>
                             PROFIL PROGRAMMER, ANIMASI BUMI 3D EMERALD GOLD &amp; DIREKTORI 61 MY APLIKASI
                         </div>
-                        <span class="text-[10px] font-mono text-emerald-300 bg-emerald-900/80 px-2.5 py-0.5 rounded-full border border-emerald-500/40">
+                        <span class="text-[10px] font-mono text-emerald-300 bg-slate-900/80 px-2.5 py-0.5 rounded-full border border-emerald-500/40">
                             ● 3D Earth Engine Active
                         </span>
                     </div>
 
                     <div class="grid grid-cols-1 xl:grid-cols-12 gap-4 items-center">
                         <div class="xl:col-span-7 flex flex-col sm:flex-row items-center gap-4">
-                            <div class="relative w-28 h-28 sm:w-32 sm:h-32 flex items-center justify-center shrink-0 rounded-full bg-emerald-950 border-2 border-amber-400/60 shadow-[0_0_25px_rgba(234,179,8,0.4)]">
+                            <div class="earth-sphere-well relative w-28 h-28 sm:w-32 sm:h-32 flex items-center justify-center shrink-0 rounded-full bg-slate-950 border-2 border-cyan-400/70 shadow-[0_0_20px_rgba(6,182,212,0.5)]">
                                 <div class="orbit-ring orbit-ring-1 w-28 h-28 sm:w-32 sm:h-32"></div>
                                 <div class="orbit-ring orbit-ring-2 w-24 h-24 sm:w-28 sm:h-28"></div>
                                 <div id="creditEarthCanvas" class="w-24 h-24 sm:w-28 sm:h-28 relative z-10"></div>
@@ -1113,13 +1284,13 @@
                             <button type="button" onclick="openAppsModal()" class="w-full sm:w-auto justify-center bg-gradient-to-r from-amber-500 via-yellow-400 to-emerald-500 hover:brightness-110 text-slate-950 px-4 py-2.5 rounded-xl flex items-center gap-2 font-black shadow-lg cursor-pointer transition transform hover:scale-105">
                                 <i class="fa-solid fa-cubes-stacked text-base"></i> MY APLIKASI SAYA (61 LINK)
                             </button>
-                            <a href="https://www.facebook.com/m.hartadi" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-none justify-center bg-emerald-900/80 border border-emerald-500 hover:bg-emerald-800 text-emerald-300 px-3.5 py-2.5 rounded-xl flex items-center gap-1.5 font-bold transition-colors">
+                            <a href="https://www.facebook.com/m.hartadi" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-none justify-center bg-slate-900/80 border border-emerald-500 hover:bg-slate-800 text-emerald-300 px-3.5 py-2.5 rounded-xl flex items-center gap-1.5 font-bold transition-colors">
                                 <i class="fa-brands fa-facebook"></i> Facebook
                             </a>
                             <a href="https://newbieonline7.blogspot.com/" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-none justify-center bg-amber-950/80 border border-amber-500 hover:bg-amber-800 text-amber-300 px-3.5 py-2.5 rounded-xl flex items-center gap-1.5 font-bold transition-colors">
                                 <i class="fa-solid fa-globe"></i> Blog
                             </a>
-                            <a href="https://wa.me/6282231036047?text=Halo%20Pak%20Adi,%20Aplikasi%20POS%20Seblak%20Asmara%20Emerald%20Gold%20sangat%20bagus!" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-none justify-center bg-emerald-900/80 border border-emerald-400 hover:bg-emerald-800 text-amber-300 px-3.5 py-2.5 rounded-xl flex items-center gap-1.5 font-bold transition-colors">
+                            <a href="https://wa.me/6282231036047?text=Halo%20Pak%20Adi,%20Aplikasi%20POS%20Seblak%20Asmara%20Emerald%20Gold%20sangat%20bagus!" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-none justify-center bg-slate-900/80 border border-emerald-400 hover:bg-slate-800 text-amber-300 px-3.5 py-2.5 rounded-xl flex items-center gap-1.5 font-bold transition-colors">
                                 <i class="fa-brands fa-whatsapp"></i> WhatsApp
                             </a>
                         </div>
@@ -1134,8 +1305,8 @@
     <!-- 6B. MODAL PRATINJAU STRUK & CETAK INTERAKTIF (THERMAL 58MM, PDF & WA)     -->
     <!-- ========================================================================= -->
     <div id="receiptPreviewModal" class="fixed inset-0 z-[1500] hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4 font-mono">
-        <div class="bg-emerald-950 border-2 border-amber-400 rounded-2xl max-w-md w-full p-5 shadow-[0_0_40px_rgba(234,179,8,0.45)] flex flex-col max-h-[92vh]">
-            <div class="flex justify-between items-center border-b border-emerald-800 pb-3 mb-3">
+        <div class="bg-slate-950 border-2 border-amber-400 rounded-2xl max-w-md w-full p-5 shadow-[0_0_40px_rgba(234,179,8,0.45)] flex flex-col max-h-[92vh]">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-3 mb-3">
                 <div class="flex items-center gap-2.5">
                     <span class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-400 flex items-center justify-center text-amber-300 text-base">
                         <i class="fa-solid fa-check-double"></i>
@@ -1152,7 +1323,7 @@
             <div id="visualReceiptCard" class="bg-white text-slate-950 p-4 rounded-xl shadow-inner overflow-y-auto text-xs space-y-1.5 flex-1 font-mono border border-amber-400/50"></div>
 
             <!-- Tombol Tindakan Cetak & Bagikan -->
-            <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-emerald-800 text-xs">
+            <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-800 text-xs">
                 <button type="button" onclick="triggerBrowserPrint()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 cursor-pointer shadow">
                     <i class="fa-solid fa-print"></i> Cetak Printer
                 </button>
@@ -1162,7 +1333,7 @@
                 <button type="button" onclick="sendLastReceiptWA()" class="col-span-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 cursor-pointer shadow">
                     <i class="fa-brands fa-whatsapp text-base"></i> Kirim Struk ke WhatsApp Pembeli
                 </button>
-                <button type="button" onclick="closeReceiptPreviewModal()" class="col-span-2 bg-emerald-900 hover:bg-emerald-800 border border-amber-400/40 text-amber-200 font-bold py-2 rounded-xl cursor-pointer">
+                <button type="button" onclick="closeReceiptPreviewModal()" class="col-span-2 bg-slate-900 hover:bg-slate-800 border border-amber-400/40 text-amber-200 font-bold py-2 rounded-xl cursor-pointer">
                     Selesai &amp; Transaksi Baru
                 </button>
             </div>
@@ -1173,7 +1344,7 @@
     <!-- 7. MODAL DIREKTORI 61 MY APLIKASI WEB                                     -->
     <!-- ========================================================================= -->
     <div id="modalApps" class="fixed inset-0 z-[1200] bg-black/85 backdrop-blur-md hidden items-center justify-center p-3 sm:p-5 font-mono text-xs">
-        <div class="cmd-card max-w-5xl w-full p-5 space-y-4 border-2 border-amber-400/80 bg-[#021a12] max-h-[90vh] flex flex-col">
+        <div class="cmd-card max-w-5xl w-full p-5 space-y-4 border-2 border-amber-400/80 bg-[#061216] max-h-[90vh] flex flex-col">
             <div class="flex items-center justify-between border-b border-amber-400/40 pb-3">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 via-yellow-400 to-emerald-500 flex items-center justify-center text-slate-950 text-lg font-black shrink-0">
@@ -1184,11 +1355,11 @@
                         <p class="text-[10px] text-emerald-300">Ekosistem Aplikasi Web Kasir, Keuangan, Geoteknik, Bendungan, Seismik, Medis &amp; AI</p>
                     </div>
                 </div>
-                <button type="button" onclick="closeAppsModal()" class="w-8 h-8 rounded-lg bg-emerald-950 border border-amber-400/40 text-amber-300 hover:bg-amber-500 hover:text-slate-950 cursor-pointer">
+                <button type="button" onclick="closeAppsModal()" class="w-8 h-8 rounded-lg bg-slate-950 border border-amber-400/40 text-amber-300 hover:bg-amber-500 hover:text-slate-950 cursor-pointer">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-            <input type="text" id="appSearchInput" oninput="renderAppsDirectory(this.value)" placeholder="Cari dari 61 aplikasi (contoh: pos, seblak, keuangan, dam, geostruct, seismik, jarvis)..." class="w-full bg-emerald-950 border border-amber-400/50 rounded-xl px-3.5 py-2.5 text-white outline-none focus:border-amber-400">
+            <input type="text" id="appSearchInput" oninput="renderAppsDirectory(this.value)" placeholder="Cari dari 61 aplikasi (contoh: pos, seblak, keuangan, dam, geostruct, seismik, jarvis)..." class="w-full bg-slate-950 border border-amber-400/50 rounded-xl px-3.5 py-2.5 text-white outline-none focus:border-amber-400">
             <div id="appsGridContainer" class="flex-1 overflow-y-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 pr-1"></div>
         </div>
     </div>
@@ -1197,7 +1368,7 @@
     <!-- 8. MODAL BANTUAN & KREDIT PROGRAMMER DENGAN BUMI 3D                       -->
     <!-- ========================================================================= -->
     <div id="helpModal" class="fixed inset-0 z-[1200] hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-emerald-950 border-2 border-amber-400 rounded-2xl w-full max-w-2xl p-5 shadow-[0_0_50px_rgba(234,179,8,0.4)] flex flex-col max-h-[90vh]">
+        <div class="bg-slate-950 border-2 border-amber-400 rounded-2xl w-full max-w-2xl p-5 shadow-[0_0_50px_rgba(234,179,8,0.4)] flex flex-col max-h-[90vh]">
             <div class="flex justify-between items-center border-b border-amber-400/40 pb-3 mb-4 shrink-0">
                 <h2 class="text-lg sm:text-xl font-tech font-black uppercase text-amber-300">
                     <i class="fa-solid fa-user-astronaut mr-2 text-emerald-400"></i> Kredit Programmer, Panduan &amp; Dukungan Sistem
@@ -1206,8 +1377,8 @@
             </div>
 
             <div class="overflow-y-auto hide-scrollbar space-y-4 font-mono text-xs text-slate-200 pr-1">
-                <div class="bg-emerald-900 border border-amber-400/60 p-4 rounded-2xl flex flex-col sm:flex-row items-center gap-4 shadow-lg">
-                    <div class="relative w-28 h-28 flex items-center justify-center shrink-0 rounded-full bg-emerald-950 border border-amber-400">
+                <div class="bg-slate-900 border border-amber-400/60 p-4 rounded-2xl flex flex-col sm:flex-row items-center gap-4 shadow-lg">
+                    <div class="earth-sphere-well relative w-28 h-28 flex items-center justify-center shrink-0 rounded-full bg-slate-950 border-2 border-cyan-400/70">
                         <div class="orbit-ring orbit-ring-1 w-28 h-28"></div>
                         <div id="modalCreditEarthCanvas" class="w-24 h-24 relative z-10"></div>
                     </div>
@@ -1221,14 +1392,14 @@
                             <button type="button" onclick="closeHelpModal(); openAppsModal();" class="bg-gradient-to-r from-amber-500 to-emerald-500 text-slate-950 font-black px-3 py-1.5 rounded-lg text-[10px] cursor-pointer">
                                 <i class="fa-solid fa-cubes-stacked"></i> 61 My Aplikasi
                             </button>
-                            <a href="https://www.facebook.com/m.hartadi" target="_blank" class="bg-emerald-800 text-emerald-300 border border-emerald-500 px-2.5 py-1.5 rounded-lg text-[10px]"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                            <a href="https://www.facebook.com/m.hartadi" target="_blank" class="bg-slate-800 text-emerald-300 border border-emerald-500 px-2.5 py-1.5 rounded-lg text-[10px]"><i class="fa-brands fa-facebook"></i> Facebook</a>
                             <a href="https://newbieonline7.blogspot.com/" target="_blank" class="bg-amber-900/60 text-amber-300 border border-amber-500 px-2.5 py-1.5 rounded-lg text-[10px]"><i class="fa-solid fa-globe"></i> Blog</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-emerald-900/80 p-4 rounded-2xl border border-emerald-700 space-y-2">
-                    <h3 class="text-amber-300 font-bold uppercase tracking-wide border-b border-emerald-800 pb-1.5 font-tech">
+                <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-700 space-y-2">
+                    <h3 class="text-amber-300 font-bold uppercase tracking-wide border-b border-slate-800 pb-1.5 font-tech">
                         <i class="fa-solid fa-book-open mr-1"></i> Panduan Fitur V5.8
                     </h3>
                     <ul class="space-y-1.5 list-disc list-inside text-[11.5px] leading-relaxed font-sans">
@@ -1238,7 +1409,7 @@
                     </ul>
                 </div>
 
-                <div class="bg-emerald-900/60 border border-amber-400 p-4 rounded-2xl text-center">
+                <div class="bg-slate-950 border border-amber-400 p-4 rounded-2xl text-center">
                     <h3 class="text-amber-300 font-bold mb-1 uppercase tracking-wide font-tech"><i class="fa-solid fa-hand-holding-heart mr-1"></i> Dukungan &amp; Donasi</h3>
                     <p class="mb-3 text-amber-200/80 text-xs">Dukung pengembangan ekosistem aplikasi ini melalui apresiasi sukarela:</p>
                     <a href="https://wa.me/6282231036047?text=Halo%20Pak%20Adi,%20saya%20ingin%20memberikan%20dukungan/donasi%20untuk%20aplikasi%20POS" target="_blank" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-2 px-5 rounded-full transition-colors shadow-lg">
@@ -1253,7 +1424,7 @@
     <!-- 9. MODAL FORM MENU PRODUK & HPP                                           -->
     <!-- ========================================================================= -->
     <div id="product-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center hidden z-[1250] p-4">
-        <div class="bg-emerald-950 border-2 border-amber-400 rounded-2xl p-6 w-full max-w-md font-mono text-xs text-white shadow-2xl">
+        <div class="bg-slate-950 border-2 border-amber-400 rounded-2xl p-6 w-full max-w-md font-mono text-xs text-white shadow-2xl">
             <div class="flex justify-between items-center border-b border-amber-400/40 pb-2.5 mb-4">
                 <h3 class="text-base font-tech font-bold text-amber-400">Form Menu Seblak &amp; HPP</h3>
                 <button type="button" onclick="closeProductModal()" class="text-slate-400 hover:text-white text-lg cursor-pointer">&times;</button>
@@ -1262,29 +1433,29 @@
             <div class="space-y-3">
                 <div>
                     <label class="block mb-1 text-slate-300">Nama Menu</label>
-                    <input type="text" id="form-name" placeholder="Contoh: Seblak Ceker Mercon" class="w-full bg-emerald-900 border border-emerald-700 p-2.5 rounded-xl focus:border-amber-400 outline-none">
+                    <input type="text" id="form-name" placeholder="Contoh: Seblak Ceker Mercon" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-xl focus:border-amber-400 outline-none">
                 </div>
                 <div>
                     <label class="block mb-1 text-slate-300">Kategori</label>
-                    <input type="text" id="form-category" placeholder="Makanan / Minuman / Topping / Paket" class="w-full bg-emerald-900 border border-emerald-700 p-2.5 rounded-xl focus:border-amber-400 outline-none">
+                    <input type="text" id="form-category" placeholder="Makanan / Minuman / Topping / Paket" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-xl focus:border-amber-400 outline-none">
                 </div>
                 <div class="grid grid-cols-2 gap-3">
                     <div>
                         <label class="block mb-1 text-amber-300">Harga Bahan / HPP (Rp)</label>
-                        <input type="number" id="form-cost" placeholder="8000" class="w-full bg-emerald-900 border border-emerald-700 p-2.5 rounded-xl focus:border-amber-400 outline-none">
+                        <input type="number" id="form-cost" placeholder="8000" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-xl focus:border-amber-400 outline-none">
                     </div>
                     <div>
                         <label class="block mb-1 text-emerald-300">Harga Jual (Rp)</label>
-                        <input type="number" id="form-price" placeholder="15000" class="w-full bg-emerald-900 border border-emerald-700 p-2.5 rounded-xl focus:border-emerald-400 outline-none">
+                        <input type="number" id="form-price" placeholder="15000" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-xl focus:border-emerald-400 outline-none">
                     </div>
                 </div>
                 <div>
                     <label class="block mb-1 text-yellow-300">Jumlah Stok Porsi</label>
-                    <input type="number" id="form-stock" placeholder="50" class="w-full bg-emerald-900 border border-emerald-700 p-2.5 rounded-xl focus:border-yellow-400 outline-none">
+                    <input type="number" id="form-stock" placeholder="50" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-xl focus:border-yellow-400 outline-none">
                 </div>
             </div>
             <div class="flex justify-end gap-2 mt-5">
-                <button type="button" onclick="closeProductModal()" class="bg-emerald-900 hover:bg-emerald-800 px-4 py-2 rounded-xl cursor-pointer">Batal</button>
+                <button type="button" onclick="closeProductModal()" class="bg-slate-900 hover:bg-slate-800 px-4 py-2 rounded-xl cursor-pointer">Batal</button>
                 <button type="button" onclick="saveProduct()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-5 py-2 rounded-xl font-black cursor-pointer">Simpan Menu</button>
             </div>
         </div>
@@ -1294,7 +1465,7 @@
     <!-- 10. MODAL CATAT PENGELUARAN OPERASIONAL                                    -->
     <!-- ========================================================================= -->
     <div id="expense-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center hidden z-[1250] p-4">
-        <div class="bg-emerald-950 border-2 border-rose-500 rounded-2xl p-6 w-full max-w-md font-mono text-xs text-white shadow-2xl">
+        <div class="bg-slate-950 border-2 border-rose-500 rounded-2xl p-6 w-full max-w-md font-mono text-xs text-white shadow-2xl">
             <div class="flex justify-between items-center border-b border-rose-500/40 pb-2.5 mb-4">
                 <h3 class="text-base font-tech font-bold text-rose-400"><i class="fa-solid fa-money-bill-transfer mr-1"></i> Catat Pengeluaran Operasional</h3>
                 <button type="button" onclick="closeExpenseModal()" class="text-slate-400 hover:text-white text-lg cursor-pointer">&times;</button>
@@ -1302,11 +1473,11 @@
             <div class="space-y-3">
                 <div>
                     <label class="block mb-1 text-slate-300">Keterangan Pengeluaran / Biaya</label>
-                    <input type="text" id="exp-title" placeholder="Contoh: Belanja Bumbu, Ceker & Kerupuk" class="w-full bg-emerald-900 border border-emerald-700 p-2.5 rounded-xl focus:border-rose-400 outline-none">
+                    <input type="text" id="exp-title" placeholder="Contoh: Belanja Bumbu, Ceker & Kerupuk" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-xl focus:border-rose-400 outline-none">
                 </div>
                 <div>
                     <label class="block mb-1 text-slate-300">Kategori Biaya</label>
-                    <select id="exp-category" class="w-full bg-emerald-900 border border-emerald-700 p-2.5 rounded-xl focus:border-rose-400 outline-none">
+                    <select id="exp-category" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-xl focus:border-rose-400 outline-none">
                         <option value="Belanja Bahan">Belanja Bahan Baku / Kemasan</option>
                         <option value="Operasional">Operasional &amp; Utilitas</option>
                         <option value="Gaji/Upah">Gaji &amp; Insentif Karyawan</option>
@@ -1315,15 +1486,15 @@
                 </div>
                 <div>
                     <label class="block mb-1 text-rose-300">Nominal Pengeluaran (Rp)</label>
-                    <input type="number" id="exp-amount" placeholder="150000" class="w-full bg-emerald-900 border border-emerald-700 p-2.5 rounded-xl focus:border-rose-400 outline-none">
+                    <input type="number" id="exp-amount" placeholder="150000" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-xl focus:border-rose-400 outline-none">
                 </div>
                 <div>
                     <label class="block mb-1 text-slate-300">Tanggal Pengeluaran</label>
-                    <input type="date" id="exp-date" class="w-full bg-emerald-900 border border-emerald-700 p-2.5 rounded-xl focus:border-rose-400 outline-none">
+                    <input type="date" id="exp-date" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-xl focus:border-rose-400 outline-none">
                 </div>
             </div>
             <div class="flex justify-end gap-2 mt-5">
-                <button type="button" onclick="closeExpenseModal()" class="bg-emerald-900 hover:bg-emerald-800 px-4 py-2 rounded-xl cursor-pointer">Batal</button>
+                <button type="button" onclick="closeExpenseModal()" class="bg-slate-900 hover:bg-slate-800 px-4 py-2 rounded-xl cursor-pointer">Batal</button>
                 <button type="button" onclick="saveExpenseRecord()" class="bg-rose-600 hover:bg-rose-500 px-5 py-2 rounded-xl font-bold cursor-pointer">Simpan ke Pembukuan</button>
             </div>
         </div>
@@ -1333,7 +1504,7 @@
     <!-- 11. MODAL PENGATURAN IDENTITAS TOKO & TEKS STRUK                          -->
     <!-- ========================================================================= -->
     <div id="storeSettingsModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center hidden z-[1250] p-4">
-        <div class="bg-emerald-950 border-2 border-amber-400 rounded-2xl p-6 w-full max-w-md font-mono text-xs text-white shadow-2xl">
+        <div class="bg-slate-950 border-2 border-amber-400 rounded-2xl p-6 w-full max-w-md font-mono text-xs text-white shadow-2xl">
             <div class="flex justify-between items-center border-b border-amber-400/40 pb-2.5 mb-4">
                 <h3 class="text-base font-tech font-bold text-amber-400"><i class="fa-solid fa-store mr-1"></i> Identitas Toko &amp; Footer Struk</h3>
                 <button type="button" onclick="closeStoreSettingsModal()" class="text-slate-400 hover:text-white text-lg cursor-pointer">&times;</button>
@@ -1341,15 +1512,15 @@
             <div class="space-y-3">
                 <div>
                     <label class="block mb-1 text-slate-300">Nama Toko / Usaha</label>
-                    <input type="text" id="inpStoreName" class="w-full bg-emerald-900 border border-emerald-700 p-2.5 rounded-xl focus:border-amber-400 outline-none">
+                    <input type="text" id="inpStoreName" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-xl focus:border-amber-400 outline-none">
                 </div>
                 <div>
                     <label class="block mb-1 text-slate-300">Pesan Footer Struk Pembayaran</label>
-                    <textarea id="inpFooterText" rows="3" class="w-full bg-emerald-900 border border-emerald-700 p-2.5 rounded-xl focus:border-amber-400 outline-none"></textarea>
+                    <textarea id="inpFooterText" rows="3" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-xl focus:border-amber-400 outline-none"></textarea>
                 </div>
             </div>
             <div class="flex justify-end gap-2 mt-5">
-                <button type="button" onclick="closeStoreSettingsModal()" class="bg-emerald-900 hover:bg-emerald-800 px-4 py-2 rounded-xl cursor-pointer">Batal</button>
+                <button type="button" onclick="closeStoreSettingsModal()" class="bg-slate-900 hover:bg-slate-800 px-4 py-2 rounded-xl cursor-pointer">Batal</button>
                 <button type="button" onclick="saveStoreSettings()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-5 py-2 rounded-xl font-black cursor-pointer">Simpan Perubahan</button>
             </div>
         </div>
@@ -1359,13 +1530,13 @@
     <!-- 12. MODAL PENGATURAN SUARA ASISTEN AI (TTS)                               -->
     <!-- ========================================================================= -->
     <div id="voiceSettingsModal" class="fixed inset-0 z-[1250] hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-emerald-950 border-2 border-amber-400 rounded-2xl w-full max-w-sm p-6 shadow-2xl relative flex flex-col">
+        <div class="bg-slate-950 border-2 border-amber-400 rounded-2xl w-full max-w-sm p-6 shadow-2xl relative flex flex-col">
             <button type="button" onclick="closeVoiceSettingsModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
             <h3 class="text-amber-300 text-base font-black font-tech mb-2 flex items-center gap-2 uppercase"><i class="fa-solid fa-headset text-emerald-400"></i> Suara Asisten AI</h3>
             <p class="text-xs text-slate-300 mb-4 font-mono">Pilih gaya suara pembaca otomatis (TTS) yang tersedia di perangkat Anda.</p>
-            <div class="bg-emerald-900 p-4 rounded-xl border border-emerald-700 mb-5">
+            <div class="bg-slate-900 p-4 rounded-xl border border-slate-700 mb-5">
                 <label class="block text-slate-200 font-mono text-xs font-bold mb-2 uppercase">Daftar Suara:</label>
-                <select id="voiceSelect" onchange="changeBotVoice()" class="w-full bg-emerald-950 border border-emerald-700 rounded-lg p-2.5 text-xs text-white focus:outline-none focus:border-amber-400">
+                <select id="voiceSelect" onchange="changeBotVoice()" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2.5 text-xs text-white focus:outline-none focus:border-amber-400">
                     <option value="">Memuat daftar suara sistem...</option>
                 </select>
             </div>
@@ -1377,8 +1548,8 @@
     <!-- 13. FLOATING JARVIS AI POS BOT & TOMBOL AKSI CEPAT                        -->
     <!-- ========================================================================= -->
     <div class="fixed bottom-4 right-4 z-[950] flex items-center gap-2 font-mono">
-        <div id="chatWindow" class="absolute bottom-16 right-0 w-[350px] sm:w-[420px] h-[520px] max-h-[78vh] bg-emerald-950/95 backdrop-blur-xl border-2 border-amber-400 rounded-2xl flex-col hidden overflow-hidden shadow-[0_0_35px_rgba(234,179,8,0.5)]">
-            <div class="bg-gradient-to-r from-emerald-950 to-amber-950 p-3 border-b border-amber-400/50 flex justify-between items-center shrink-0">
+        <div id="chatWindow" class="absolute bottom-16 right-0 w-[350px] sm:w-[420px] h-[520px] max-h-[78vh] bg-slate-950/95 backdrop-blur-xl border-2 border-cyan-500 rounded-2xl flex-col hidden overflow-hidden shadow-[0_0_35px_rgba(6,182,212,0.5)]">
+            <div class="bg-gradient-to-r from-slate-950 to-cyan-950 p-3 border-b border-cyan-500/50 flex justify-between items-center shrink-0">
                 <div class="flex items-center gap-2">
                     <i id="botToggleIcon" class="fa-solid fa-robot text-amber-300 text-xl animate-pulse"></i>
                     <div>
@@ -1387,42 +1558,42 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-1.5">
-                    <button type="button" onclick="openVoiceSettingsModal()" class="text-amber-300 hover:text-white bg-emerald-900 border border-amber-400/50 px-2 py-1 rounded cursor-pointer" title="Ubah Suara TTS">
+                    <button type="button" onclick="openVoiceSettingsModal()" class="text-amber-300 hover:text-white bg-slate-900 border border-amber-400/50 px-2 py-1 rounded cursor-pointer" title="Ubah Suara TTS">
                         <i class="fa-solid fa-headset"></i>
                     </button>
                     <button type="button" onclick="toggleChatWindow()" class="text-slate-400 hover:text-rose-400 font-black text-lg px-1 cursor-pointer">&times;</button>
                 </div>
             </div>
 
-            <div class="bg-emerald-900/90 py-2 px-3 border-b border-emerald-800 flex justify-between items-center shrink-0 text-[11px]">
+            <div class="bg-slate-900/90 py-2 px-3 border-b border-slate-800 flex justify-between items-center shrink-0 text-[11px]">
                 <span id="bot-day" class="font-bold text-amber-300 uppercase">MEMUAT...</span>
                 <span id="bot-time" class="font-tech font-black text-emerald-300">00:00:00 WIB</span>
             </div>
 
-            <div id="chatMessages" class="flex-1 p-3 overflow-y-auto space-y-3 text-xs text-white bg-emerald-950/80">
-                <div class="bg-emerald-900 p-3 rounded-xl border border-amber-400/40 w-[92%] shadow-md leading-relaxed">
+            <div id="chatMessages" class="flex-1 p-3 overflow-y-auto space-y-3 text-xs text-white bg-slate-950/90">
+                <div class="bg-slate-900 p-3 rounded-xl border border-amber-400/40 w-[92%] shadow-md leading-relaxed">
                     <span class="text-amber-300 font-black mb-1 block">🤖 JARVIS AI POS:</span>
                     Halo! Gunakan tombol pintasan di bawah untuk mengecek <b>Ringkasan Pembukuan Seblak Asmara</b>, membuka <b>61 My Aplikasi</b>, melihat <b>Profil Programmer</b>, atau ketik pertanyaan apa pun!
                 </div>
             </div>
 
-            <div class="bg-emerald-900 px-3 py-2 flex gap-1.5 border-t border-emerald-800 overflow-x-auto hide-scrollbar shrink-0">
-                <button type="button" onclick="handleBotShortcut('pembukuan')" class="bg-emerald-950 border border-amber-400/50 text-amber-300 text-[10px] px-2.5 py-1.5 rounded-full font-bold hover:bg-amber-500/20 whitespace-nowrap cursor-pointer">
+            <div class="bg-slate-900 px-3 py-2 flex gap-1.5 border-t border-slate-800 overflow-x-auto hide-scrollbar shrink-0">
+                <button type="button" onclick="handleBotShortcut('pembukuan')" class="bg-slate-950 border border-amber-400/50 text-amber-300 text-[10px] px-2.5 py-1.5 rounded-full font-bold hover:bg-amber-500/20 whitespace-nowrap cursor-pointer">
                     📊 Cek Pembukuan
                 </button>
-                <button type="button" onclick="handleBotShortcut('my_aplikasi')" class="bg-emerald-950 border border-emerald-400/50 text-emerald-300 text-[10px] px-2.5 py-1.5 rounded-full font-bold hover:bg-emerald-500/20 whitespace-nowrap cursor-pointer">
+                <button type="button" onclick="handleBotShortcut('my_aplikasi')" class="bg-slate-950 border border-emerald-400/50 text-emerald-300 text-[10px] px-2.5 py-1.5 rounded-full font-bold hover:bg-emerald-500/20 whitespace-nowrap cursor-pointer">
                     🚀 61 My Aplikasi
                 </button>
-                <button type="button" onclick="handleBotShortcut('fitur_aplikasi')" class="bg-emerald-950 border border-yellow-400/50 text-yellow-300 text-[10px] px-2.5 py-1.5 rounded-full font-bold hover:bg-yellow-500/20 whitespace-nowrap cursor-pointer">
+                <button type="button" onclick="handleBotShortcut('fitur_aplikasi')" class="bg-slate-950 border border-yellow-400/50 text-yellow-300 text-[10px] px-2.5 py-1.5 rounded-full font-bold hover:bg-yellow-500/20 whitespace-nowrap cursor-pointer">
                     ⭐ Fitur POS
                 </button>
-                <button type="button" onclick="handleBotShortcut('programmer')" class="bg-emerald-950 border border-lime-400/50 text-lime-300 text-[10px] px-2.5 py-1.5 rounded-full font-bold hover:bg-lime-500/20 whitespace-nowrap cursor-pointer">
+                <button type="button" onclick="handleBotShortcut('programmer')" class="bg-slate-950 border border-lime-400/50 text-lime-300 text-[10px] px-2.5 py-1.5 rounded-full font-bold hover:bg-lime-500/20 whitespace-nowrap cursor-pointer">
                     👨‍💻 Programmer
                 </button>
             </div>
 
-            <form class="p-2.5 bg-emerald-900 border-t border-emerald-800 flex gap-2 shrink-0" onsubmit="handleChatSubmit(event)">
-                <input type="text" id="chatInput" autocomplete="off" placeholder="Tanya pembukuan, omzet, menu, atau Wikipedia..." class="flex-1 bg-emerald-950 border border-emerald-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-400">
+            <form class="p-2.5 bg-slate-900 border-t border-slate-800 flex gap-2 shrink-0" onsubmit="handleChatSubmit(event)">
+                <input type="text" id="chatInput" autocomplete="off" placeholder="Tanya pembukuan, omzet, menu, atau Wikipedia..." class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-400">
                 <button type="submit" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-4 rounded-xl transition-colors cursor-pointer"><i class="fa-solid fa-paper-plane"></i></button>
             </form>
         </div>
@@ -1430,7 +1601,7 @@
         <button type="button" onclick="openAppsModal()" class="h-11 w-11 rounded-full bg-amber-500 hover:bg-amber-400 text-slate-950 border-2 border-amber-200 flex items-center justify-center hover:scale-110 shadow-lg transition-transform cursor-pointer" title="Direktori 61 My Aplikasi">
             <i class="fa-solid fa-cubes-stacked"></i>
         </button>
-        <button type="button" onclick="toggleScreensaver(true)" class="h-11 w-11 rounded-full bg-emerald-950 border-2 border-amber-400 text-amber-300 flex items-center justify-center hover:scale-110 shadow-[0_0_15px_rgba(234,179,8,0.5)] transition-transform cursor-pointer" title="Screensaver Bumi 3D">
+        <button type="button" onclick="toggleScreensaver(true)" class="h-11 w-11 rounded-full bg-slate-950 border-2 border-amber-400 text-amber-300 flex items-center justify-center hover:scale-110 shadow-[0_0_15px_rgba(234,179,8,0.5)] transition-transform cursor-pointer" title="Screensaver Bumi 3D">
             <i class="fa-solid fa-earth-asia"></i>
         </button>
         <button type="button" onclick="toggleChatWindow()" class="h-12 px-4 rounded-full bg-gradient-to-r from-amber-500 to-emerald-500 border-2 border-white text-slate-950 font-black flex items-center gap-2 hover:scale-105 shadow-[0_0_20px_rgba(234,179,8,0.8)] relative transition-transform cursor-pointer">
@@ -1458,7 +1629,7 @@
             if (!toast) {
                 toast = document.createElement('div');
                 toast.id = 'posModernToast';
-                toast.style.cssText = 'position:fixed;bottom:85px;left:50%;transform:translateX(-50%);z-index:100080;font-family:JetBrains Mono,monospace;font-size:12px;font-weight:bold;padding:12px 20px;border-radius:14px;color:#fff;background:rgba(2,26,18,0.96);box-shadow:0 10px 30px rgba(0,0,0,0.8);transition:all 0.25s;pointer-events:none;max-width:90vw;text-align:center;';
+                toast.style.cssText = 'position:fixed;bottom:85px;left:50%;transform:translateX(-50%);z-index:100080;font-family:JetBrains Mono,monospace;font-size:12px;font-weight:bold;padding:12px 20px;border-radius:14px;color:#fff;background:rgba(15,23,42,0.96);box-shadow:0 10px 30px rgba(0,0,0,0.8);transition:all 0.25s;pointer-events:none;max-width:90vw;text-align:center;';
                 document.body.appendChild(toast);
             }
             toast.style.border = `2px solid ${borderCol}`;
@@ -1488,24 +1659,24 @@
             canvas.width = 1024; canvas.height = 512;
             const ctx = canvas.getContext('2d');
             const oceanGrad = ctx.createLinearGradient(0, 0, 0, 512);
-            oceanGrad.addColorStop(0, '#04271b');
-            oceanGrad.addColorStop(0.5, '#059669');
-            oceanGrad.addColorStop(1, '#04271b');
+            oceanGrad.addColorStop(0, '#0c4a6e');
+            oceanGrad.addColorStop(0.5, '#0284c7');
+            oceanGrad.addColorStop(1, '#0c4a6e');
             ctx.fillStyle = oceanGrad;
             ctx.fillRect(0, 0, 1024, 512);
 
-            ctx.fillStyle = '#fef08a';
-            ctx.fillRect(0, 0, 1024, 28);
-            ctx.fillRect(0, 484, 1024, 28);
+            ctx.fillStyle = '#e0f2fe';
+            ctx.fillRect(0, 0, 1024, 24);
+            ctx.fillRect(0, 488, 1024, 24);
 
             const continents = [
-                {x: 180, y: 140, rx: 95, ry: 75, c: '#b45309'},
-                {x: 270, y: 310, rx: 65, ry: 95, c: '#047857'},
-                {x: 520, y: 150, rx: 85, ry: 60, c: '#d97706'},
-                {x: 540, y: 270, rx: 75, ry: 90, c: '#065f46'},
-                {x: 730, y: 165, rx: 140, ry: 85, c: '#b45309'},
+                {x: 180, y: 140, rx: 95, ry: 75, c: '#15803d'},
+                {x: 270, y: 310, rx: 65, ry: 95, c: '#166534'},
+                {x: 520, y: 150, rx: 85, ry: 60, c: '#15803d'},
+                {x: 540, y: 270, rx: 75, ry: 90, c: '#14532d'},
+                {x: 730, y: 165, rx: 140, ry: 85, c: '#15803d'},
                 {x: 820, y: 350, rx: 65, ry: 48, c: '#10b981'},
-                {x: 790, y: 265, rx: 55, ry: 25, c: '#f59e0b'}
+                {x: 790, y: 265, rx: 55, ry: 25, c: '#22c55e'}
             ];
             continents.forEach(b => {
                 ctx.save();
@@ -1574,7 +1745,7 @@
             renderer.setClearColor(0x000000, 0);
             container.appendChild(renderer.domElement);
 
-            scene.add(new THREE.AmbientLight(0xfef08a, 0.9));
+            scene.add(new THREE.AmbientLight(0xdbeafe, 0.95));
             const sunLight = new THREE.DirectionalLight(0xfffbeb, 1.25);
             sunLight.position.set(80, 35, 70);
             scene.add(sunLight);
@@ -1585,7 +1756,7 @@
             const fallbackEarthTex = createProceduralEarthTexture();
             const earthMesh = new THREE.Mesh(
                 new THREE.SphereGeometry(radius, 64, 64),
-                new THREE.MeshPhongMaterial({ map: fallbackEarthTex, shininess: 16, specular: new THREE.Color(0xfacc15) })
+                new THREE.MeshPhongMaterial({ map: fallbackEarthTex, shininess: 16, specular: new THREE.Color(0x38bdf8) })
             );
             earthMesh.rotation.x = 0.18;
             earthGroup.add(earthMesh);
@@ -1611,7 +1782,7 @@
 
             const atmosMesh = new THREE.Mesh(
                 new THREE.SphereGeometry(radius * 1.11, 48, 48),
-                new THREE.MeshBasicMaterial({ color: 0xeab308, transparent: true, opacity: 0.12, side: THREE.BackSide, depthWrite: false })
+                new THREE.MeshBasicMaterial({ color: 0x38bdf8, transparent: true, opacity: 0.12, side: THREE.BackSide, depthWrite: false })
             );
             earthGroup.add(atmosMesh);
 
@@ -1738,7 +1909,7 @@
             const lower = q.toLowerCase();
             const list = myAppsDirectory.filter(a => a.n.toLowerCase().includes(lower) || a.cat.toLowerCase().includes(lower));
             box.innerHTML = list.map((a, i) => `
-                <a href="${a.u}" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-emerald-950 border border-amber-400/40 hover:border-amber-300 hover:bg-emerald-900 flex justify-between items-center transition group">
+                <a href="${a.u}" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-slate-950 border border-amber-400/40 hover:border-amber-300 hover:bg-slate-900 flex justify-between items-center transition group">
                     <div class="min-w-0 pr-2">
                         <div class="font-bold text-white text-xs truncate group-hover:text-amber-300">#${i + 1} ${a.n}</div>
                         <span class="text-[10px] text-emerald-300">${a.cat}</span>
@@ -2006,7 +2177,7 @@
             const pillBox = document.getElementById('posCategoryPills');
             if (pillBox) {
                 pillBox.innerHTML = cats.map(c => `
-                    <button type="button" onclick="filterCategory('${c}')" class="px-3 py-1 rounded-full font-bold whitespace-nowrap transition cursor-pointer ${activeCategoryFilter === c ? 'bg-amber-400 text-slate-950 shadow' : 'bg-emerald-950 text-slate-200 border border-emerald-800 hover:border-amber-400'}">
+                    <button type="button" onclick="filterCategory('${c}')" class="px-3 py-1 rounded-full font-bold whitespace-nowrap transition cursor-pointer ${activeCategoryFilter === c ? 'bg-amber-400 text-slate-950 shadow' : 'bg-slate-950 text-slate-200 border border-slate-800 hover:border-amber-400'}">
                         ${c}
                     </button>
                 `).join('');
@@ -2021,15 +2192,15 @@
             document.getElementById('pos-products-list').innerHTML = filtered.map(p => {
                 const margin = p.price - (p.cost || Math.round(p.price * 0.5));
                 return `
-                <button type="button" onclick="addToCart('${p.id}')" class="p-3.5 bg-emerald-950/90 border border-emerald-800/80 rounded-2xl text-left hover:border-amber-400 hover:bg-emerald-900/80 transition-all active:scale-95 flex flex-col justify-between shadow-md cursor-pointer group">
+                <button type="button" onclick="addToCart('${p.id}')" class="p-3.5 bg-slate-900/90 border border-slate-700/80 rounded-2xl text-left hover:border-amber-400 hover:bg-slate-900/80 transition-all active:scale-95 flex flex-col justify-between shadow-md cursor-pointer group">
                     <div>
                         <div class="flex justify-between items-start gap-1">
-                            <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-emerald-900 text-amber-300 border border-amber-400/30">${p.category || 'Umum'}</span>
+                            <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-slate-900 text-amber-300 border border-amber-400/30">${p.category || 'Umum'}</span>
                             <span class="text-[10px] font-mono ${p.stock <= 5 ? 'text-rose-400 font-black animate-pulse' : 'text-slate-400'}">Stok: ${p.stock}</span>
                         </div>
                         <div class="font-bold text-xs sm:text-sm text-white mt-2 group-hover:text-amber-300 leading-snug">${p.name}</div>
                     </div>
-                    <div class="mt-3 pt-2 border-t border-emerald-800 flex justify-between items-end">
+                    <div class="mt-3 pt-2 border-t border-slate-800 flex justify-between items-end">
                         <div>
                             <span class="text-amber-300 font-tech font-black text-xs sm:text-sm block">Rp ${p.price.toLocaleString('id-ID')}</span>
                             <span class="text-[9px] font-mono text-emerald-400">Laba: +Rp ${margin.toLocaleString('id-ID')}</span>
@@ -2045,10 +2216,10 @@
                 const cost = p.cost || Math.round(p.price * 0.5);
                 const margin = p.price - cost;
                 return `
-                <tr class="hover:bg-emerald-900/80 transition-colors">
+                <tr class="hover:bg-slate-900/80 transition-colors">
                     <td class="p-3 text-amber-300">${p.id}</td>
                     <td class="p-3 font-bold text-white">${p.name}</td>
-                    <td class="p-3"><span class="px-2 py-0.5 rounded bg-emerald-900 text-emerald-300 text-[10px]">${p.category || 'Umum'}</span></td>
+                    <td class="p-3"><span class="px-2 py-0.5 rounded bg-slate-900 text-emerald-300 text-[10px]">${p.category || 'Umum'}</span></td>
                     <td class="p-3 text-right text-amber-300">Rp ${cost.toLocaleString('id-ID')}</td>
                     <td class="p-3 text-right font-bold text-white">Rp ${p.price.toLocaleString('id-ID')}</td>
                     <td class="p-3 text-right font-bold text-emerald-400">+Rp ${margin.toLocaleString('id-ID')}</td>
@@ -2122,15 +2293,15 @@
                     </div>`;
             } else {
                 c.innerHTML = cart.map(i => `
-                    <div class="flex justify-between items-center bg-emerald-950 p-2.5 rounded-xl border border-emerald-800 text-xs text-white">
+                    <div class="flex justify-between items-center bg-slate-950 p-2.5 rounded-xl border border-slate-800 text-xs text-white">
                         <div class="min-w-0 pr-2">
                             <p class="font-bold truncate">${i.name}</p>
                             <p class="text-[10px] text-amber-300">Rp ${i.price.toLocaleString('id-ID')} × ${i.quantity} = <b>Rp ${(i.price * i.quantity).toLocaleString('id-ID')}</b></p>
                         </div>
                         <div class="flex gap-1.5 items-center shrink-0">
-                            <button type="button" onclick="updateCartQty('${i.id}', -1)" class="w-6 h-6 bg-emerald-800 hover:bg-rose-600 rounded-lg font-bold cursor-pointer">-</button>
+                            <button type="button" onclick="updateCartQty('${i.id}', -1)" class="w-6 h-6 bg-slate-800 hover:bg-rose-600 rounded-lg font-bold cursor-pointer">-</button>
                             <span class="w-5 text-center font-bold">${i.quantity}</span>
-                            <button type="button" onclick="updateCartQty('${i.id}', 1)" class="w-6 h-6 bg-emerald-800 hover:bg-amber-500 hover:text-slate-950 rounded-lg font-bold cursor-pointer">+</button>
+                            <button type="button" onclick="updateCartQty('${i.id}', 1)" class="w-6 h-6 bg-slate-800 hover:bg-amber-500 hover:text-slate-950 rounded-lg font-bold cursor-pointer">+</button>
                         </div>
                     </div>
                 `).join('');
@@ -2437,11 +2608,12 @@
         }
 
         // =====================================================================
-        // 7. PEMBUKUAN 4 PERIODE & GRAFIK EMERALD GOLD
+        // 7. PEMBUKUAN 4 PERIODE & GRAFIK MULTI-WARNA NYAMAN DI MATA (V6.0)
         // =====================================================================
         const VIBRANT_EMERALD_GOLD_PALETTE = [
-            '#eab308', '#10b981', '#f59e0b', '#059669', '#fde047', '#34d399',
-            '#d97706', '#047857', '#ca8a04', '#84cc16', '#a3e635', '#fef08a'
+            '#06b6d4', '#10b981', '#f59e0b', '#ec4899', '#8b5cf6', '#3b82f6',
+            '#14b8a6', '#eab308', '#f43f5e', '#a855f7', '#22c55e', '#0ea5e9',
+            '#fb923c', '#38bdf8'
         ];
 
         function setBookkeepingPeriod(period) {
@@ -2450,9 +2622,9 @@
                 const btn = document.getElementById('btnPeriod-' + p);
                 if (!btn) return;
                 if (p === period) {
-                    btn.className = 'px-3.5 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-emerald-600 text-slate-950 font-black shadow cursor-pointer transition';
+                    btn.className = 'px-3.5 py-2 rounded-xl bg-gradient-to-r from-cyan-600 to-teal-600 text-white font-black shadow cursor-pointer transition';
                 } else {
-                    btn.className = 'px-3.5 py-2 rounded-xl bg-emerald-900 hover:bg-emerald-800 text-slate-300 border border-emerald-700 font-bold cursor-pointer transition';
+                    btn.className = 'px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 font-bold cursor-pointer transition';
                 }
             });
             loadReports();
@@ -2466,7 +2638,7 @@
                 if (s === style) {
                     btn.className = 'px-3 py-1.5 rounded-lg bg-amber-500 text-slate-950 font-black cursor-pointer transition';
                 } else {
-                    btn.className = 'px-3 py-1.5 rounded-lg bg-emerald-900 text-slate-300 border border-emerald-700 hover:text-white cursor-pointer transition';
+                    btn.className = 'px-3 py-1.5 rounded-lg bg-slate-900 text-slate-300 border border-slate-700 hover:text-white cursor-pointer transition';
                 }
             });
             loadReports();
@@ -2608,7 +2780,7 @@
             document.getElementById('report-profit-margin').textContent = `Margin Laba Bersih: ${margin}%`;
 
             document.getElementById('bookkeeping-summary-body').innerHTML = [...buckets].reverse().map(b => `
-                <tr class="hover:bg-emerald-900/90 transition">
+                <tr class="hover:bg-slate-900/90 transition">
                     <td class="p-2.5 font-bold text-amber-300">${b.label} <span class="text-[9px] text-slate-400">(${b.txCount} trx)</span></td>
                     <td class="p-2.5 text-right font-bold text-white">Rp ${b.omzet.toLocaleString('id-ID')}</td>
                     <td class="p-2.5 text-right text-emerald-300">Rp ${(b.cogs + b.expense).toLocaleString('id-ID')}</td>
@@ -2620,13 +2792,13 @@
                 const cogs = Number(t.cogs) || Math.round((Number(t.total) || 0) * 0.45);
                 const laba = (Number(t.total) || 0) - cogs;
                 return `
-                <tr class="hover:bg-emerald-900/90 transition">
+                <tr class="hover:bg-slate-900/90 transition">
                     <td class="p-2.5">
                         <span class="text-amber-300 font-bold block">${t.id}</span>
                         <span class="text-[9px] text-slate-400">${new Date(t.date).toLocaleString('id-ID')}</span>
                     </td>
                     <td class="p-2.5">${t.customerName || 'Pelanggan Umum'}</td>
-                    <td class="p-2.5"><span class="px-2 py-0.5 rounded bg-emerald-900 text-amber-300 text-[10px]">${t.method || 'Tunai'}</span></td>
+                    <td class="p-2.5"><span class="px-2 py-0.5 rounded bg-slate-900 text-amber-300 text-[10px]">${t.method || 'Tunai'}</span></td>
                     <td class="p-2.5 text-right font-bold text-white">Rp ${(Number(t.total) || 0).toLocaleString('id-ID')}</td>
                     <td class="p-2.5 text-right font-bold text-emerald-400">+Rp ${laba.toLocaleString('id-ID')}</td>
                     <td class="p-2.5 text-center">
@@ -2640,12 +2812,12 @@
             const expBody = document.getElementById('expense-table-body');
             if (expBody) {
                 expBody.innerHTML = [...db.expenses].reverse().map(e => `
-                    <tr class="hover:bg-emerald-900/90 transition">
+                    <tr class="hover:bg-slate-900/90 transition">
                         <td class="p-2.5">
                             <span class="text-rose-300 font-bold block">${e.id}</span>
                             <span class="text-[9px] text-slate-400">${new Date(e.date).toLocaleDateString('id-ID')}</span>
                         </td>
-                        <td class="p-2.5"><span class="px-2 py-0.5 rounded bg-emerald-900 text-amber-300 text-[10px]">${e.category || 'Operasional'}</span></td>
+                        <td class="p-2.5"><span class="px-2 py-0.5 rounded bg-slate-900 text-amber-300 text-[10px]">${e.category || 'Operasional'}</span></td>
                         <td class="p-2.5 text-white">${e.title || e.desc || '-'}</td>
                         <td class="p-2.5 text-right font-bold text-rose-400">-Rp ${(Number(e.amount) || 0).toLocaleString('id-ID')}</td>
                         <td class="p-2.5 text-center">
@@ -2760,36 +2932,42 @@
                 ];
             }
 
+            const isDark = document.documentElement.classList.contains('dark');
+            const tickColorY = isDark ? '#94a3b8' : '#334155';
+            const tickColorX = isDark ? '#cbd5e1' : '#0f172a';
+            const gridColorY = isDark ? 'rgba(148, 163, 184, 0.14)' : 'rgba(15, 23, 42, 0.10)';
+            const legendColor = isDark ? '#f8fafc' : '#0f172a';
+
             salesChartInstance = new Chart(ctx, {
                 type: chartType,
                 data: { labels, datasets },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    animation: { duration: 1100, easing: 'easeOutQuart' },
+                    animation: { duration: 950, easing: 'easeOutQuart' },
                     interaction: { mode: 'index', intersect: false },
                     scales: {
                         y: {
                             beginAtZero: true,
                             ticks: {
-                                color: '#a7f3d0',
-                                font: { family: 'JetBrains Mono', size: 10 },
+                                color: tickColorY,
+                                font: { family: 'JetBrains Mono', size: 10, weight: 'bold' },
                                 callback: function(val) {
                                     if (val >= 1000000) return 'Rp ' + (val / 1000000).toFixed(1) + 'Jt';
                                     if (val >= 1000) return 'Rp ' + (val / 1000).toFixed(0) + 'Rb';
                                     return 'Rp ' + val;
                                 }
                             },
-                            grid: { color: 'rgba(16, 185, 129, 0.15)' }
+                            grid: { color: gridColorY }
                         },
                         x: {
-                            ticks: { color: '#fef08a', font: { family: 'JetBrains Mono', size: 10 } },
+                            ticks: { color: tickColorX, font: { family: 'JetBrains Mono', size: 10, weight: 'bold' } },
                             grid: { display: false }
                         }
                     },
                     plugins: {
                         legend: {
-                            labels: { color: '#f8fafc', font: { family: 'JetBrains Mono', size: 11 } }
+                            labels: { color: legendColor, font: { family: 'JetBrains Mono', size: 11, weight: 'bold' } }
                         }
                     }
                 }
@@ -2802,7 +2980,7 @@
             const ctx = canvas.getContext('2d');
             if (paymentPieChartInstance) paymentPieChartInstance.destroy();
 
-            const totalsByMethod = { 'Tunai': 0, 'QRIS': 0, 'Transfer': 0, 'Gojek/Grab': 0 };
+            const totalsByMethod = { 'Tunai': 0, 'QRIS': 0, 'Transfer': 0, 'Debit/Kredit': 0, 'Gojek/Grab': 0 };
             transactions.forEach(t => {
                 const m = t.method || 'Tunai';
                 totalsByMethod[m] = (totalsByMethod[m] || 0) + (Number(t.total) || 0);
@@ -2810,7 +2988,8 @@
 
             const labels = Object.keys(totalsByMethod);
             const data = Object.values(totalsByMethod);
-            const colors = ['#eab308', '#10b981', '#34d399', '#f59e0b'];
+            const colors = ['#10b981', '#06b6d4', '#f59e0b', '#a855f7', '#3b82f6'];
+            const isDark = document.documentElement.classList.contains('dark');
 
             paymentPieChartInstance = new Chart(ctx, {
                 type: 'doughnut',
@@ -2819,15 +2998,15 @@
                     datasets: [{
                         data,
                         backgroundColor: colors,
-                        borderColor: '#021a12',
-                        borderWidth: 3,
+                        borderColor: isDark ? '#0f172a' : '#ffffff',
+                        borderWidth: 2.5,
                         hoverOffset: 8
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    animation: { animateScale: true, animateRotate: true, duration: 1000 },
+                    animation: { animateScale: true, animateRotate: true, duration: 950 },
                     plugins: { legend: { display: false } }
                 }
             });
@@ -2835,9 +3014,9 @@
             const legendHost = document.getElementById('paymentBreakdownLegend');
             if (legendHost) {
                 legendHost.innerHTML = labels.map((l, i) => `
-                    <div class="flex items-center justify-between bg-emerald-950 px-2.5 py-1.5 rounded-lg border border-emerald-800">
-                        <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full" style="background:${colors[i]}"></span>${l}</span>
-                        <b class="text-white">Rp ${(data[i]/1000).toFixed(0)}k</b>
+                    <div class="flex items-center justify-between bg-slate-950 px-2.5 py-1.5 rounded-lg border border-slate-800">
+                        <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:${colors[i]}"></span><span class="truncate">${l}</span></span>
+                        <b class="text-white ml-1">Rp ${(data[i]/1000).toFixed(0)}k</b>
                     </div>
                 `).join('');
             }
@@ -3016,13 +3195,13 @@
         function loadCustomers() {
             const db = getDB();
             document.getElementById('customer-table-body').innerHTML = db.customers.map(c => `
-                <tr class="hover:bg-emerald-900 transition-colors">
+                <tr class="hover:bg-slate-900 transition-colors">
                     <td class="p-3 font-bold text-white">${c.name}</td>
                     <td class="p-3 text-amber-300">${c.wa || '-'}</td>
                     <td class="p-3 text-center">${(c.history || []).length}</td>
                     <td class="p-3 text-right font-bold text-emerald-400">Rp ${(c.totalSpent || 0).toLocaleString('id-ID')}</td>
                     <td class="p-3 text-center">
-                        <button type="button" onclick="sendPromoWA('${c.wa}')" class="bg-emerald-900 hover:bg-emerald-600 text-amber-300 border border-amber-400 px-3 py-1 rounded-lg text-[10px] transition cursor-pointer ${!c.wa ? 'opacity-40 pointer-events-none' : ''}">
+                        <button type="button" onclick="sendPromoWA('${c.wa}')" class="bg-slate-900 hover:bg-emerald-600 text-amber-300 border border-amber-400 px-3 py-1 rounded-lg text-[10px] transition cursor-pointer ${!c.wa ? 'opacity-40 pointer-events-none' : ''}">
                             <i class="fa-brands fa-whatsapp"></i> Kirim
                         </button>
                     </td>
@@ -3108,12 +3287,26 @@
             document.querySelectorAll('.tab-content').forEach(e => e.classList.add('hidden-ui'));
             document.getElementById('tab-' + tab)?.classList.remove('hidden-ui');
 
+            const hdrMap = {
+                kasir: 'hdrBtnKasir',
+                laporan: 'hdrBtnLaporan',
+                produk: 'hdrBtnProduk',
+                pelanggan: 'hdrBtnPelanggan',
+                database: 'hdrBtnDatabase'
+            };
+
             ['kasir', 'laporan', 'produk', 'pelanggan', 'database'].forEach(t => {
                 const sideBtn = document.getElementById('sideBtn-' + t);
                 if (sideBtn) {
                     sideBtn.className = t === tab
-                        ? "nav-btn whitespace-nowrap w-full text-left px-4 py-3 rounded-xl bg-amber-500 text-slate-950 flex items-center transition-all shadow-md cursor-pointer font-black"
-                        : "nav-btn whitespace-nowrap w-full text-left px-4 py-3 rounded-xl text-[var(--text-main)] hover:bg-amber-500/10 flex items-center transition-all cursor-pointer";
+                        ? "nav-btn whitespace-nowrap w-full text-left px-4 py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-teal-600 text-white flex items-center transition-all shadow-md cursor-pointer font-black"
+                        : "nav-btn whitespace-nowrap w-full text-left px-4 py-3 rounded-xl text-[var(--text-main)] hover:bg-cyan-500/15 flex items-center transition-all cursor-pointer";
+                }
+                const hdrBtn = document.getElementById(hdrMap[t]);
+                if (hdrBtn) {
+                    hdrBtn.className = t === tab
+                        ? "px-3.5 py-2 rounded-xl bg-gradient-to-r from-cyan-600 to-teal-600 text-white font-black flex items-center gap-1.5 shadow cursor-pointer transition"
+                        : "px-3.5 py-2 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-cyan-300 border border-cyan-500/50 font-bold flex items-center gap-1.5 cursor-pointer transition";
                 }
             });
 
@@ -3222,8 +3415,8 @@
         function appendBotReply(htmlContent, ttsText) {
             const c = document.getElementById('chatMessages');
             c.insertAdjacentHTML('beforeend', `
-                <div class="bg-emerald-900 border border-amber-400/40 p-3 rounded-xl text-slate-200 text-xs w-[94%] shadow-md leading-relaxed">
-                    <p class="font-bold text-[10px] text-amber-300 mb-1.5 border-b border-emerald-800 pb-1">🤖 JARVIS POS RESPONSE:</p>
+                <div class="bg-slate-900 border border-amber-400/40 p-3 rounded-xl text-slate-200 text-xs w-[94%] shadow-md leading-relaxed">
+                    <p class="font-bold text-[10px] text-amber-300 mb-1.5 border-b border-slate-800 pb-1">🤖 JARVIS POS RESPONSE:</p>
                     ${htmlContent}
                 </div>
             `);
@@ -3267,9 +3460,9 @@
                         <div class="font-bold text-amber-300">Ir. Mohamad Hartadi (Adi)</div>
                         <div class="text-[11px] text-slate-300">Civil & Geotechnical Engineer • Software & AI Developer</div>
                         <div class="flex flex-wrap gap-1.5 pt-1">
-                            <a href="https://www.facebook.com/m.hartadi" target="_blank" class="px-2 py-1 rounded bg-emerald-900 text-emerald-300 border border-emerald-500 text-[10px]">Facebook</a>
+                            <a href="https://www.facebook.com/m.hartadi" target="_blank" class="px-2 py-1 rounded bg-slate-900 text-emerald-300 border border-emerald-500 text-[10px]">Facebook</a>
                             <a href="https://newbieonline7.blogspot.com/" target="_blank" class="px-2 py-1 rounded bg-amber-950 text-amber-300 border border-amber-500 text-[10px]">Blog</a>
-                            <a href="https://wa.me/6282231036047" target="_blank" class="px-2 py-1 rounded bg-emerald-900 text-amber-300 border border-amber-400 text-[10px]">WA: 0822-3103-6047</a>
+                            <a href="https://wa.me/6282231036047" target="_blank" class="px-2 py-1 rounded bg-slate-900 text-amber-300 border border-amber-400 text-[10px]">WA: 0822-3103-6047</a>
                         </div>
                     </div>`;
                 appendBotReply(html, "Menampilkan profil pengembang utama, Bapak Insinyur Mohamad Hartadi.");
@@ -3342,7 +3535,14 @@
 
         function toggleThemeMode() {
             const isDark = document.documentElement.classList.toggle('dark');
-            document.getElementById('themeIcon').className = isDark ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+            const bodyEl = document.getElementById('appBody');
+            if (bodyEl) bodyEl.classList.toggle('theme-light', !isDark);
+            const iconEl = document.getElementById('themeIcon');
+            if (iconEl) iconEl.className = isDark ? 'fa-solid fa-moon text-amber-400' : 'fa-solid fa-sun text-amber-500';
+            const textEl = document.getElementById('themeText');
+            if (textEl) textEl.innerText = isDark ? 'DARK' : 'LIGHT';
+            localStorage.setItem('pos_theme_mode', isDark ? 'dark' : 'light');
+            loadReports();
         }
 
         function dismissLoadingScreen() {
